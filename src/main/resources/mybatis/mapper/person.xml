@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gdu.veggiemeal.mapper.PersonMapper">
+	<!-- 아이디 유효성 체크 -->
+	<select id="selectPersonById" parameterType="String" resultType="PersonDTO">
+		SELECT ID
+		  FROM PERSON
+		 WHERE ID = #{id}
+	</select>
+	<select id="selectSleepPersonById" parameterType="String" resultType="SleepPersonDTO">
+		SELECT ID
+		  FROM SLEEP_PERSON
+		 WHERE ID = #{id}
+	</select>
+	<select id="selectLeavePersonById" parameterType="String" resultType="LeavePersonDTO">
+		SELECT ID
+		  FROM LEAVE_PERSON
+		 WHERE ID = #{id}
+	</select>
+	<!-- 이메일 유효성 체크 -->
+	<select id="selectPersonByEmail" parameterType="String" resultType="PersonDTO">
+		SELECT EMAIL
+		  FROM PERSON
+		 WHERE EMAIL = #{email}
+	</select>
+	<select id="selectSleepPersonByEmail" parameterType="String" resultType="SleepPersonDTO">
+		SELECT EMAIL
+		  FROM SLEEP_PERSON
+		 WHERE EMAIL = #{id}
+	</select>
+	<select id="selectLeavePersonByEmail" parameterType="String" resultType="LeavePersonDTO">
+		SELECT EMAIL
+		  FROM LEAVE_PERSON
+		 WHERE EMAIL = #{email}
+	</select>
+	
+	
+</mapper>
+
