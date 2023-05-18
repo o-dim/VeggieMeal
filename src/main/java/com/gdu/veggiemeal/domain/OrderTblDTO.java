@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderDTO {
+public class OrderTblDTO {
 	
 	private int orderNo;
 	private PersonDTO perNo;
