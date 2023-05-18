@@ -9,4 +9,23 @@
   		  <setting name="mapUnderscoreToCamelCase" value="true" />
 	  </settings>
 	  
+	  <!-- typeAliases -->
+	  <typeAliases>
+  		  <typeAlias alias="OrderTblDTO" type="com.gdu.veggiemeal.domain.OrderTblDTO" />
+  		  <typeAlias alias="OrderDetailDTO" type="com.gdu.veggiemeal.domain.OrderDetailDTO" />
+  		  <typeAlias alias="BasketDTO" type="com.gdu.veggiemeal.domain.BasketDTO" />
+  		  <typeAlias alias="RecipeReplyDTO" type="com.gdu.veggiemeal.domain.RecipeReplyDTO" />
+  		  <typeAlias alias="SleepPersonDTO" type="com.gdu.veggiemeal.domain.SleepPersonDTO" />
+  		  <typeAlias alias="LeavePersonDTO" type="com.gdu.veggiemeal.domain.LeavePersonDTO" />
+  		  <typeAlias alias="QnaDTO" type="com.gdu.veggiemeal.domain.QnaDTO" />
+  		  <typeAlias alias="RecommandDTO" type="com.gdu.veggiemeal.domain.RecommandDTO" />
+  		  <typeAlias alias="RImgDTO" type="com.gdu.veggiemeal.domain.RImgDTO" />
+  		  <typeAlias alias="CartDTO" type="com.gdu.veggiemeal.domain.CartDTO" />
+  		  <typeAlias alias="PImgDTO" type="com.gdu.veggiemeal.domain.PImgDTO" />
+  		  <typeAlias alias="SaleDTO" type="com.gdu.veggiemeal.domain.SaleDTO" />
+  		  <typeAlias alias="PersonDTO" type="com.gdu.veggiemeal.domain.PersonDTO" />
+  		  <typeAlias alias="ProductDTO" type="com.gdu.veggiemeal.domain.ProductDTO" />
+  		  <typeAlias alias="RecipeDTO" type="com.gdu.veggiemeal.domain.RecipeDTO" />
+	  </typeAliases>
+	  
 </configuration>
