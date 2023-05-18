@@ -1,5 +1,15 @@
 package com.gdu.veggiemeal.domain;
 
-public class RecipeDTO {
+import java.sql.Date;
 
+public class RecipeDTO {
+	
+	private int RecipeNo;
+	private String id;
+	private String title;
+	private String tool;
+	private String content1;
+	private String content2;
+	private Date writeAt;
+	private Date modifiedAt;
 }
