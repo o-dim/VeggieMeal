@@ -1,5 +1,5 @@
 package com.gdu.veggiemeal.domain;
 
-public class QnaDTO {
+public class RImgDTO {
 
 }
