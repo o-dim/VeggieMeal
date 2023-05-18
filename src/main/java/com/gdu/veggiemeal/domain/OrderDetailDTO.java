@@ -7,14 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SaleDTO {
+public class OrderDetailDTO {
 	
-	private int saleNo;
+	private int ODNo;
+	private OrderDTO orderNo;
 	private ProductDTO prodCode;
-	private String saleTitle;
-	private String saleContent;
-	private int salePrice;
-	private ProductDTO prodPath;
-	private ProductDTO prodImgName;
 
 }
