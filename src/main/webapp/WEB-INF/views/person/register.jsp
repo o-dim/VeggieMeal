@@ -179,29 +179,32 @@
 		hitory.back();
 	}
 	// form 제출여부
-	$('#register_frm').on('submit', function(event) {
-		if(idValidate == false) {
-			alert('아이디를 확인해주세요.');
-			event.preventDefault();
-			return false;
-		} else if (pwValidate == false) {
-			alert('비밀번호를 확인해주세요.');
-			event.preventDefault();
-			return false;
-		} else if (phoneNoValidate == false) {
-			alert('핸드폰 번호를 확인해주세요.');
-			event.preventDefault();
-			return false;
-		} else if (nameValidate == false) {
-			alert('이름을 확인해주세요.');
-			event.preventDefault();			
-			return false;
-		} else if (emailValidate == false) {
-			alert('이메일을 확인해주세요.');
-			event.preventDefault();			
-			return false;
-		}
-	})
+	function fnJoin() {
+		$('#register_frm').on('submit', function(event) {
+			if(idValidate == false) {
+				alert('아이디를 확인해주세요.');
+				event.preventDefault();
+				return false;
+			} else if (pwValidate == false) {
+				alert('비밀번호를 확인해주세요.');
+				event.preventDefault();
+				return false;
+			} else if (phoneNoValidate == false) {
+				alert('핸드폰 번호를 확인해주세요.');
+				event.preventDefault();
+				return false;
+			} else if (nameValidate == false) {
+				alert('이름을 확인해주세요.');
+				event.preventDefault();			
+				return false;
+			} else if (emailValidate == false) {
+				alert('이메일을 확인해주세요.');
+				event.preventDefault();			
+				return false;
+			}
+		})
+		
+	}
 	// 함수 호출
 	$(function() {
 		fnCheckId();
@@ -210,6 +213,7 @@
 		fnNameCheck();
 		fnCheckPhoneNo();
 		fnEmailCheck();
+		fnJoin();
 	})
 
 </script>
@@ -289,7 +293,7 @@
 	<div>
 		<h1>회원가입</h1>
 	</div>
-		<form action="/addPerson.do" method="post" id="register_frm">
+		<form action="${contextPath}/person/joinPerson.form" method="post" id="register_frm">
 			<div class="centerplz">
 				<div>이름</div>
 				<input type="text" name="name" id="name" placeholder="이름">
