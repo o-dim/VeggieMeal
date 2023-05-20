@@ -1,5 +1,7 @@
 package com.gdu.veggiemeal.domain;
 
+import java.sql.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,9 +9,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BasketDTO {
+public class QnaAnswerDTO {
 
-	private int basketNo;
-	private CartDTO cartNo;
-	private ProductDTO prodCode;
+	private String title;
+	private String content;
+	private Date answerAt;
+	private String id;
 }

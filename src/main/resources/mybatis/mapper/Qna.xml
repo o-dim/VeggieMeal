@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- namespace는 @Mapper를 지정한다. -->
+<mapper namespace="com.gdu.veggiemeal.mapper.QnaMapper">
+<!-- 
+<insert id="insertQna" parameterType="QnaDTO">
+	INSERT INTO QNA 
+		(QNA_NO, TITLE, CONTENT, WRITE_AT, QNA_REPLY, PER_NO)
+	VALUES
+		(QNA_SEQ.NEXTVAL, #{qnaNo}, #{title}, #{content}, #{writeAt}, #{qnaReply}, #{perNo})
+</insert>
+  -->
+ 
+
+
+</mapper>

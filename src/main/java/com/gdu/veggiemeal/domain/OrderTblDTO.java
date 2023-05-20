@@ -11,6 +11,8 @@ public class OrderTblDTO {
 	
 	private int orderNo;
 	private PersonDTO perNo;
-	private BasketDTO basketNo;
+	private CartDetailDTO cartDetailNo;
+	private int total;
+	private int fastOrder;
 
 }

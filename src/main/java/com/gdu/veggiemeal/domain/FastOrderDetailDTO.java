@@ -7,10 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderDetailDTO {
+public class FastOrderDetailDTO {
 	
 	private int ODNo;
 	private OrderTblDTO orderNo;
 	private ProductDTO prodCode;
+	private int count;
 
 }
