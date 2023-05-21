@@ -14,4 +14,5 @@ public class LeavePersonDTO {
 	private String email;
 	private Date joinedAt;
 	private Date leaveAt;
+	private String id;
 }

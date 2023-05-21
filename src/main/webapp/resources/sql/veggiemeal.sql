@@ -123,7 +123,7 @@ CREATE TABLE ORDER_TBL (
     PER_NO                      NUMBER              NOT NULL,       -- FK
     CART_DETAIL_NO              NUMBER              NOT NULL,       -- FK
     TOTAL                       NUMBER              NOT NULL,
-    PAST_ORDER                  NUMBER              NOT NULL         -- (0 카트디테일불러올것이다, 1이면 (바로)주문된다.) 로그인 전제하에
+    FAST_ORDER                  NUMBER              NOT NULL         -- (0 카트디테일불러올것이다, 1이면 (바로)주문된다.) 로그인 전제하에
 );
 
 -- 바로주문 
@@ -138,7 +138,7 @@ CREATE TABLE FAST_ORDER_DETAIL (
 -- 레시피 이미지 게시판(사진 여러 개)
 CREATE TABLE RIMG (
    RECIPE_NO                   NUMBER               NOT NULL,
-    RIMG_NO                     NUMBER              NOT NULL,
+   RIMG_NO                     NUMBER              NOT NULL,
    RIMG_PATH                   VARCHAR2(100 BYTE)   NOT NULL,
    RIMG_ORIGIN_NAME           VARCHAR2(300 BYTE)   NOT NULL,
    RIMG_FILE_NAME               VARCHAR2(50 BYTE)   NOT NULL

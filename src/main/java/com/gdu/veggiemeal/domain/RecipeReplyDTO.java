@@ -13,6 +13,6 @@ public class RecipeReplyDTO {
 	private int depth;
 	private DATE writeAt;
 	private Date reWriteAt;
-	private String id;
+	private PersonDTO id;
 	private RecipeDTO recipeNo;
 }
