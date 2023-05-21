@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class FastOrderDetailDTO {
 	
-	private int ODNo;
+	private int odNo;
 	private OrderTblDTO orderNo;
 	private ProductDTO prodCode;
 	private int count;

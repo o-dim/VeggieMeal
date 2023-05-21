@@ -14,5 +14,5 @@ public class QnaAnswerDTO {
 	private String title;
 	private String content;
 	private Date answerAt;
-	private String id;
+	private QnaDTO id;
 }

@@ -11,9 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PersonDTO {
 	private int	perNo;
-	private String id;
 	private String pw;
-	private String name;
 	private int phoneNo;
 	private String postAddress;
 	private String roadAddress;
@@ -21,6 +19,8 @@ public class PersonDTO {
 	private String detailAddress;
 	private String email;
 	private String gender;
+	private String name;
 	private int aggreecode;
 	private Date joinedAt;
+	private String id;
 }
