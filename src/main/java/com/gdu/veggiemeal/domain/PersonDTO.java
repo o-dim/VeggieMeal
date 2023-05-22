@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class PersonDTO {
 	private int	perNo;
 	private String pw;
-	private String phoneNo;
+	private String phoneno;
 	private String postAddress;
 	private String roadAddress;
 	private String jibunAddress;

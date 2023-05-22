@@ -13,7 +13,7 @@ public class SleepPersonDTO {
 	private int sleepPerNo;
 	private String id;
 	private String pw;
-	private String phoneNo;
+	private String phoneno;
 	private String postAddress;
 	private String roadAddress;
 	private String jibunAddress;

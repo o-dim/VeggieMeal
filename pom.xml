@@ -15,7 +15,24 @@
 	</properties>
 
 	<dependencies>
-	
+		<!--  Random String : 인증코드용  -->
+		<!--
+		 https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 
+		-->
+		<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-lang3</artifactId>
+		<version>3.11</version>
+		</dependency>
+		<!--   이메일 전송 (javax.mail + spring-context-support)  -->
+		<!--
+		 https://mvnrepository.com/artifact/com.sun.mail/javax.mail 
+		-->
+		<dependency>
+		<groupId>com.sun.mail</groupId>
+		<artifactId>javax.mail</artifactId>
+		<version>1.6.2</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 		<dependency>
 		    <groupId>com.fasterxml.jackson.core</groupId>
