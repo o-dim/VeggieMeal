@@ -13,7 +13,7 @@ public class SleepPersonDTO {
 	private int sleepPerNo;
 	private String id;
 	private String pw;
-	private int phoneNo;
+	private String phoneNo;
 	private String postAddress;
 	private String roadAddress;
 	private String jibunAddress;
@@ -21,7 +21,6 @@ public class SleepPersonDTO {
 	private String email;
 	private String gender;
 	private String name;
-	private int aggreecode;
 	private Date joinedAt;
 	private Date sleptAt;
 }

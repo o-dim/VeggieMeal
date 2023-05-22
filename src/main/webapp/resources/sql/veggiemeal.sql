@@ -91,7 +91,7 @@ CREATE TABLE PIMG (
 CREATE TABLE PERSON (
    PER_NO                      NUMBER               NOT NULL,
    PW                           VARCHAR2(20 BYTE)   NOT NULL,
-   PHONENO                       NUMBER               NOT NULL,
+   PHONENO                       CLOB               NOT NULL,
    POST_ADDRESS               VARCHAR2(5 BYTE)       NULL,
    ROAD_ADDRESS               VARCHAR2(100 BYTE)       NULL,
    JIBUN_ADDRESS               VARCHAR2(100 BYTE)       NULL,
@@ -99,7 +99,6 @@ CREATE TABLE PERSON (
    EMAIL                       VARCHAR2(20 BYTE)   NOT NULL,
    GENDER                       VARCHAR2(10 BYTE)   NOT NULL,
    NAME                       VARCHAR2(20 BYTE)   NOT NULL,
-   AGGRECODE                   NUMBER                   NULL,
    JOINED_AT                   DATE                   NULL,
    ID                           VARCHAR2(20 BYTE)   NOT NULL UNIQUE
 );
@@ -182,7 +181,7 @@ CREATE TABLE SLEEP_PERSON (
     SLEEP_PER_NO                NUMBER              NOT NULL,
    ID                           VARCHAR2(20 BYTE)   NOT NULL UNIQUE,
    PW                           VARCHAR2(20 BYTE)   NOT NULL,
-   PHONENO                       NUMBER               NOT NULL,
+   PHONENO                       CLOB               NOT NULL,
    POST_ADDRESS               VARCHAR2(5 BYTE)       NULL,
    ROAD_ADDRESS               VARCHAR2(100 BYTE)       NULL,
    JIBUN_ADDRESS               VARCHAR2(100 BYTE)       NULL,
@@ -190,7 +189,6 @@ CREATE TABLE SLEEP_PERSON (
    EMAIL                       VARCHAR2(20 BYTE)   NOT NULL,
    GENDER                       NUMBER               NOT NULL,
    NAME                       VARCHAR2(20 BYTE)   NOT NULL,
-   AGGRECODE                   NUMBER                   NULL,
    JOINED_AT                   DATE                   NULL,
    SLEPT_AT                   DATE                   NULL
 );
