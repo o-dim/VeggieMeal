@@ -145,13 +145,14 @@
 	<img src="${contextPath}/resources/images/logo.png" width="250px">	
 	</div>
 
- <div><form method="post">
+ <div>
+ 	<form method="post">
    <button>메뉴</button>
    <button>메뉴2</button>
    <button>메뉴2</button>
    <button>로그인</button>
    <button>회원가입</button>
-</form>
+	</form>
 </div>
 	
 
