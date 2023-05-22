@@ -11,4 +11,5 @@ import com.gdu.veggiemeal.domain.QnaDTO;
 public interface QnaMapper {
 
 public List<QnaDTO> getQnaList();
+public int addQna(QnaDTO qnaDTO);
 }

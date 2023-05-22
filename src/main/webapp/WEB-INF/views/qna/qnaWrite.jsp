@@ -11,10 +11,40 @@
 <title>Insert title here</title>
 <script src="${contextPath}/resources/js/lib/jquery-3.6.4.min.js"></script>
 <script>
-	function fnQnaWrite() {
-		location.href = '${contextPath}/qna/qnaWrite.do';		
-	}
+	
+var verifyTitle = false;
 
+
+	function fntitle() {
+		$('#title').on('keyup', function(){
+			//입력한 제목
+			let title = $(this).val();
+			
+			let getTitle = /^[a-z]{1,3}$/;
+			
+			verifyTitle = getTitle.test(title);
+			if(title == false) {
+				$('#msgTitle').text('제목은 30자 이하만 입력 가능합니다.');
+				return;
+			}
+		})
+	}
+	
+	function fnsignUp() {
+		$('#signUp').on('click', function(){
+			if()
+		})
+	}
+	
+	function fnback() {
+		location.href = '${contextPath}/qna/list.do';
+	}
+	
+	//함수호출
+	$(function(){
+		fntitle();
+		 fnback();
+	})
 </script>
 <style>
 
@@ -139,7 +169,7 @@
 <header>
 
 	<div class="logo">
-	야채단속반
+		야채단속반
 	</div>
 	<div class="logo_img">
 	<img src="${contextPath}/resources/images/logo.png" width="250px">	
@@ -154,37 +184,34 @@
 </form>
 </div>
 	
-
 </header>
+	<h2>질문하기</h2>
+	<form method="post">
+		<div>
+			<label for="title" >제목</label>
+			<input type="text" id="title" name="title" required="required" onclick="fntitle()">
+			<span id="msgTitle"></span>
+		</div>
+		<div>
+			<label for="picture">사진첨부하기</label>
+			<input id="picture" name="picture">
+		</div>
+		<div>
+			<label for="content">내용</label>
+			<input type="text" id="content" name="content" maxlength="3000" required="required" onclick="fncontent()">
+		</div>
+	</form>
+	<form method="post">
+		<div>
+			<input type="button" name="signUp" value="질문하기" onclick="fnsignUp()">
+		</div>
+		<form id="fnback" action="${contextPath}/qna/list.do">	
+				<input type="button" name="back" value="돌아가기">		
+		</form>
 	
 	
-	<div>
-		<h2>질문하기</h2>
-	<div>
-		<input type="button" value="글쓰기" onclick="fnQnaWrite()">
-	</div>
-		<table border="1">
-			<thead>
-				
-				<tr>
-					<td>글 번호</td>
-					<td>답변유무</td>
-					<td>제목</td>
-					<td>글쓴이</td>
-					<td>날짜</td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					
-				</tr>
-			</tbody>
-		</table>
-		
-	</div>
-		
 	
 	
 	
 </body>
-</html>
+</html>	

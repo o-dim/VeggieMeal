@@ -10,10 +10,5 @@ import com.gdu.veggiemeal.mapper.QnaMapper;
 
 @Service
 public class QnaServiceImpl implements QnaService {
-	@Autowired
-	private QnaMapper qnaMapper;
-	@Override
-	public List<QnaDTO> getQnaList() {
-		return qnaMapper.getQnaList();
-	}
+
 }

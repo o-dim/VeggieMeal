@@ -5,14 +5,27 @@
   
 <!-- namespace는 @Mapper를 지정한다. -->
 <mapper namespace="com.gdu.veggiemeal.mapper.QnaMapper">
-<!-- 
+
 <insert id="insertQna" parameterType="QnaDTO">
-	INSERT INTO QNA 
-		(QNA_NO, TITLE, CONTENT, WRITE_AT, QNA_REPLY, PER_NO)
-	VALUES
-		(QNA_SEQ.NEXTVAL, #{qnaNo}, #{title}, #{content}, #{writeAt}, #{qnaReply}, #{perNo})
+	INSERT INTO QNA (
+		QNA_NO
+		, TITLE
+		, CONTENT
+		, WRITE_AT
+		, ID
+	) VALUES (
+		QNA_SEQ.NEXTVAL
+		, #{title}
+		, #{content}
+		, #{writeAt}
+		, #{id}
+		)
 </insert>
-  -->
+
+
+
+
+
  
 
 

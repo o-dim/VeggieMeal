@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AdminController {
 
-	@GetMapping("/adminPage.form")
-	public String adminPage(HttpServletRequest request, Model model) {
-		return null;
+
 	}
-}
+
