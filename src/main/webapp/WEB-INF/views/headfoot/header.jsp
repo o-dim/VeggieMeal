@@ -77,11 +77,12 @@
         padding-top: 20px;
         text-align: center;
     }
-    .subMenu > div:hover {
-        color: green;
-    }
     a, a:visited {
     	text-decoration: none;
+    	color: black;
+    }
+    .subMenu > div:hover {
+        color: green;
     }
 </style>
 <script>

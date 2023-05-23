@@ -88,7 +88,7 @@
 	<div class="box">
 		<h1>로그인</h1>
 		<div class="box2">
-		<form action="${contextPath}/person/login.form" method="post" id="login_frm">
+		<form action="${contextPath}/person/login.do" method="post" id="login_frm">
 			<input type="hidden" name="url" value="${url}">
 			<div class="id">
 				<div>아이디</div>

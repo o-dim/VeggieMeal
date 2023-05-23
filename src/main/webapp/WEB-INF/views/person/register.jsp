@@ -225,13 +225,6 @@
 				})
 				event.preventDefault();			
 				return false;
-			} else if (phonenoValidate == false) {
-				Swal.fire({
-					  text : '핸드폰 번호를 확인해주세요',
-					  icon : 'warning'
-				})
-				event.preventDefault();			
-				return false;
 			} else if (pwValidate == false) {
 				Swal.fire({
 					  text : '비밀번호를 확인해주세요',
