@@ -3,7 +3,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ include file="../headfoot/header.jsp" %>
+<c:if test="${sessionScope.id == null}">
+	<%@ include file="../headfoot/header-x.jsp" %>
+</c:if>
+<c:if test="${sessionScope.id != null}">
+	<%@ include file="../headfoot/header.jsp" %>
+</c:if>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>

@@ -3,7 +3,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ include file="headfoot/header.jsp" %>
+<c:if test="${sessionScope.id == null}">
+	<%@ include file="headfoot/header-x.jsp" %>
+</c:if>
+<c:if test="${sessionScope.id != null}">
+	<%@ include file="headfoot/header.jsp" %>
+</c:if>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -13,16 +18,16 @@
 <script src="${contextPath}/resources/js/lib/jquery-3.6.4.min.js"></script>
 </head>
 <style>
+
    .image1 {
-   		
-        width: 100vw;
-        height: 100vh;
-        background : url("${contextPath}/resources/images/index1.png") fixed;
+   		width : 100vw;
+   		height : 60vw;
+        background : url("${contextPath}/resources/images/index1.png");
         background-size: 100% 100%;
    }
    .image2 {
         width: 100vw;
-        height: 250vh;
+        height: 270vh;
         background: url("${contextPath}/resources/images/2.png") scroll;
         background-size: 100% 100%;
    }
