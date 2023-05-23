@@ -335,20 +335,48 @@ ALTER TABLE FAST_ORDER_DETAIL
   ADD CONSTRAINT FK_PRODUCT2 FOREIGN KEY (PROD_CODE)
       REFERENCES PRODUCT (PROD_CODE);
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
+
+INSERT INTO PERSON VALUES (
+    PERSON_SEQ.NEXTVAL,
+    'mango123!',
+    '01011111113',
+    '11111',
+    '망고광역시',
+    '망고동',
+    '망망',
+    'mango@gmail.com',
+    1,
+    '김망고',
+    SYSDATE,
+    'mango'
+);
+
+INSERT INTO PERSON VALUES (
+    PERSON_SEQ.NEXTVAL,
+    'grape123!',
+    '01011111116',
+    '11114',
+    '포도',
+    '포도동',
+    '바바',
+    'grape@gmail.com',
+    2,
+    '포도씨',
+    SYSDATE,
+    'grape'
+);
+INSERT INTO PERSON VALUES (
+    PERSON_SEQ.NEXTVAL,
+    'avocado123!',
+    '01011111119',
+    '11312',
+    '나보카도',
+    '아보카도',
+    '보보',
+    'avocado@gmail.com',
+    1,
+    '아보카',
+    SYSDATE,
+    'avocado'
+); COMMIT;
