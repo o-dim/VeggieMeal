@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ include file="../headfoot/header.jsp" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -59,7 +60,7 @@
 	
 	// 돌아가기 버튼 눌렀을 때 뒤로 감
 	function fnBack() {
-		hitory.back();
+		location.href = "${contextPath}/person/mypage.do";
 	}
 	
 	// 함수 호출
@@ -74,7 +75,7 @@
 	.box {
 		position: absolute;
 		width: 1000px;
-		top: 210px;
+		top: 330px;
 		left : calc(50% - 1000px/2);
 		background-position: center;
 		background: #F4F4F4;
@@ -86,6 +87,7 @@
 		text-align: center;
 		margin-bottom: 50px;
 	}
+	
 	#update_frm {
 		display: flex;
 		justify-content: center;

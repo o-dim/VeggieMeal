@@ -23,6 +23,20 @@
 	
 	<context:component-scan base-package="com.gdu.veggiemeal" />
 	
+	<interceptors>
+		<interceptor>
+			<mapping path="/person/logout.do"/>
+			<mapping path="/person/mypage.form"/>
+			<mapping path="/person/edit.form"/>
+			<beans:bean class="com.gdu.veggiemeal.interceptor.LoginInterceptor"></beans:bean>
+		</interceptor>
+		<interceptor>
+			<mapping path="/person/login.form"/>
+			<mapping path="/person/register.form"/>
+			<beans:bean class="com.gdu.veggiemeal.interceptor.RegisterInterceptor"></beans:bean>
+		</interceptor>
+		
+	</interceptors>
 	
 	
 </beans:beans>

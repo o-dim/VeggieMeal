@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ include file="../headfoot/header.jsp" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -10,6 +11,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="${contextPath}/resources/js/lib/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 	var idValidate = false;
 	var pwValidate = false;
@@ -34,7 +36,7 @@
 			// 중복 아이디 테스트
 			$.ajax({
 				type : 'get',
-				url : '${contextPath}/person/verifyId.form',
+				url : '${contextPath}/person/verifyId.do',
 				data : "id=" + id,
 				dataType : 'json',
 				success : function(resData) {
@@ -146,7 +148,7 @@
 				// 이메일 중복 검사
 				$.ajax({
 					type : 'get',
-					url : '${contextPath}/person/verifyEmail.form',
+					url : '${contextPath}/person/verifyEmail.do',
 					data : 'email=' + email,
 					dataType : 'json',
 					success : function(resData) {
@@ -161,7 +163,7 @@
 			}).then(function() {
 				$.ajax({
 					type : 'get',
-					url : '${contextPath}/person/sendAuthCode.form',
+					url : '${contextPath}/person/sendAuthCode.do',
 					data : 'email=' + email,
 					dataType : 'json',
 					success : function(resData) {
@@ -187,6 +189,7 @@
 					msg = '이메일 형식이 올바르지 않습니다';
 					break;
 				case 2:
+					msg = '이미 존재하는 이메일입니다.';
 					break;
 				}
 				$('#email_msg').text(msg);
@@ -201,21 +204,40 @@
 	// form 제출여부
 	function fnJoin() {
 		$('#register_frm').on('submit', function(event) {
-			if(idValidate == false) {
-				alert('아이디를 확인해주세요.');
+			if(nameValidate == false) {
+				Swal.fire({
+					  text : '이름을 확인해주세요',
+					  icon : 'warning'
+				})
 				event.preventDefault();
 				return false;
-			} else if (pwValidate == false) {
-				alert('비밀번호를 확인해주세요.');
-				event.preventDefault();
-				return false;
-			} else if (nameValidate == false) {
-				alert('이름을 확인해주세요.');
+			} else if (idValidate == false) {
+				Swal.fire({
+					  text : '아이디를 확인해주세요',
+					  icon : 'warning'
+				})
 				event.preventDefault();			
 				return false;
 			} else if (emailValidate == false) {
-				alert('이메일을 확인해주세요.');
+				Swal.fire({
+					  text : '이메일을 확인해주세요',
+					  icon : 'warning'
+				})
 				event.preventDefault();			
+				return false;
+			} else if (phonenoValidate == false) {
+				Swal.fire({
+					  text : '핸드폰 번호를 확인해주세요',
+					  icon : 'warning'
+				})
+				event.preventDefault();			
+				return false;
+			} else if (pwValidate == false) {
+				Swal.fire({
+					  text : '비밀번호를 확인해주세요',
+					  icon : 'warning'
+				})
+				event.preventDefault();
 				return false;
 			}
 		})
@@ -229,21 +251,22 @@
 		fnCheckPhoneno();
 		fnEmailCheck();
 		fnJoin();
+		
 	})
-
+	
 </script>
 <!-- 클래스는 . 아이디는 # -->
 <style type="text/css">
 	
 	.box {
-		position: absolute;
 		width: 1000px;
-		top: 210px;
+		top: 350px;
 		left : calc(50% - 1000px/2);
 		background-position: center;
 		background: #F4F4F4;
 		border-radius: 59px;
 		margin-bottom: 100px;
+		position: absolute;
 	}
 
 	h1 {
@@ -301,7 +324,7 @@
 	 	font-size: 14px;
 	 	margin: 0px 0px 10px 0px;
 	}
-	.id_false, .pw_false, #phone_msg {
+	.id_false, .pw_false, #phone_msg, #email_msg {
 		color : red;
 		font-size: 14px;
 		margin : 0px 0px 10px 0px;
@@ -314,12 +337,13 @@
 </style>
 </head>
 <body>
+	<div id="header"></div>
 	<!-- 회원가입란 -->
 	<div class="box">
 	<div>
 		<h1>회원가입</h1>
 	</div>
-		<form action="${contextPath}/person/join.form" method="post" id="register_frm">
+		<form action="${contextPath}/person/join.do" method="post" id="register_frm">
 			<div class="centerplz">
 				<div>이름</div>
 				<input type="text" name="name" id="name" placeholder="이름">
@@ -357,7 +381,7 @@
 				</div>
 				<div>주소</div>
 				<!-- 주소 api 자리 -->
-				<span><input type="text" id="postcode" onclick="daumPostcode()" name = "postAddress" placeholder="우편번호"></span>
+				<span><input type="text" id="postcode" onclick="daumPostcode()" name = "postCode" placeholder="우편번호"></span>
 				<span><input type="button" onclick="daumPostcode()" value="우편번호 찾기"><br></span>
 				<input type="text" id="roadAddress" name="roadAddress" placeholder="도로명주소">
 				<input type="text" id="jibunAddress" name="jibunAddress" placeholder="지번주소">

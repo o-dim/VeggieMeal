@@ -13,7 +13,7 @@ public class PersonDTO {
 	private int	perNo;
 	private String pw;
 	private String phoneno;
-	private String postAddress;
+	private String postCode;
 	private String roadAddress;
 	private String jibunAddress;
 	private String detailAddress;

@@ -12,80 +12,98 @@
 <script src="${contextPath}/resources/js/lib/jquery-3.6.4.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-	function fnRegister(){
-		location.href = '${contextPath}/person/register.do';
+	function fnLogin() {
+		$('#login_frm').on('submit', function() {
+			if($('#id').val() == '' || $('#pw').val() == ''){
+				event.preventDefault();
+				swal('로그인 실패', '아이디와 비밀번호를 확인해주세요', 'error')
+				.then(function() {
+					return;
+				})
+			}
+		})
 	}
+	function fnRegister(){
+		location.href = '${contextPath}/person/register.form';
+	}
+	$(function() {
+		fnLogin();
+	})
 	
 </script>
 </head>
 <style>
-
-
-	h1 {
-		text-align: center;
-		margin-bottom: 50px;
+	.box {
+		position: absolute;
+		width: 1000px;
+		top: 330px;
+		left : calc(50% - 1000px/2);
+		background-position: center;
+		background: #F4F4F4;
+		border-radius: 59px;
+		margin-bottom: 100px;
+		
 	}
-	
-	#login_frm{
+	.box2 {
 		display: flex;
 		justify-content: center;
 	}
 
-	.login {
-		width: 600px;
-		height: 500px;
-		margin: 100px auto;
-		border-radius: 10px;
-		background-color: #F4F4F4;
-		padding: 30px 0;
-	}
-	
-	.login2 {
+	h1 {
 		text-align: center;
-		width: 500px;
+		margin-top : 100px;
+		margin-bottom: 50px;
+		
 	}
-	
-		input {
-		width : 300px;
+
+	input {
+		width : 410px;
 		border: none;
 		border-bottom: 1px solid black;
-		background-color: #F4F4F4;
 		padding-top: 20px;
 		margin-bottom: 20px;
 		outline: none;
-		
+		background-color: transparent;
 	}
+	
 	.regiLogin{
 		border-radius: 10px;
 		border:none;
 		background-color: #FACC57;
 		margin: 30px auto;
 		padding: 6px;
-		width: 300px;
+		width : 410px;
 		height: 50px;
 	}
+	.notyet {
+		text-align: center;
+		margin-bottom: 200px;
+	}
+
 	
 </style>
 <body>
+	<%@ include file="../headfoot/header.jsp" %>
 	<!-- 로그인 -->
-	<div class="login">
+	<div class="box">
 		<h1>로그인</h1>
+		<div class="box2">
 		<form action="${contextPath}/person/login.form" method="post" id="login_frm">
-			<div class="login2">
+			<input type="hidden" name="url" value="${url}">
+			<div class="id">
 				<div>아이디</div>
-				<input type="text" name="perId" id="perId">
+				<input type="text" name="id" id="id">
 				<div id="id_msg"></div>
-				
-				<div>비밀번호</div>
-				<input type="password" name="perPw" id="perPw">
-				<div id="pw_msg"></div>
-				
-				<div>
-				<button class="regiLogin" style="cursor: pointer;">로그인</button>
-				<div>아직 회원이 아니신가요? <span style="cursor: pointer;" onclick="fnRegister()">회원가입하러가기</span></div>
-				</div>
 			</div>
+			<div class="pw">
+				<div>비밀번호</div>
+				<input type="password" name="pw" id="pw">
+				<div id="pw_msg"></div>
+			</div>
+			<button class="regiLogin" style="cursor: pointer;">로그인</button>
+			<div class="notyet">아직 회원이 아니신가요? <span style="cursor: pointer;" onclick="fnRegister()">회원가입하러가기</span></div>
 		</form>
+		</div>
 	</div>
 
 </body>

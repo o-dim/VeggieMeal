@@ -17,18 +17,18 @@
 	<h1>인덱스는 수정하면 안돼요!!!</h1>
 	
 	<br>
-	<a href="${contextPath}/admin/adminPage.do">admin</a>
+	<a href="${contextPath}/admin/adminPage.form">admin</a>
 	<br>
-	<a href="${contextPath}/person/login.do">login</a>
+	<a href="${contextPath}/person/login.form">login</a>
 	<br>
-	<a href="${contextPath}/person/mypage.do">my page</a>
+	<a href="${contextPath}/person/mypage.form">my page</a>
 	<br>
-	<a href="${contextPath}/menu1/wanted.do">wanted</a>
+	<a href="${contextPath}/menu1/wanted.form">wanted</a>
 	<br>
-	<a href="${contextPath}/menu2/recipe.do">recipe</a>
+	<a href="${contextPath}/menu2/recipe.form">recipe</a>
 	<br>
-	<a href="${contextPath}/order/cart.do">cart</a>
+	<a href="${contextPath}/order/cart.form">cart</a>
 	<br>
-	<a href="${contextPath}/qna/list.do">qna list</a>
+	<a href="${contextPath}/qna/list.form">qna list</a>
 </body>
 </html>
