@@ -380,9 +380,9 @@ INSERT INTO PERSON VALUES (
 ); 
 
 
-INSERT INTO QNA VALUES(USER_SEQ.NEXTVAL, '감자', '감자가 갈색이라니 정상인가요?', TO_DATE('20230520', 'YYYYMMDD'), 'DrPotato1');
-INSERT INTO QNA VALUES(USER_SEQ.NEXTVAL, '고구마', '고구마가 너무 달아요', TO_DATE('20230522', 'YYYYMMDD'), 'Sweetpotato1');
-INSERT INTO QNA VALUES(USER_SEQ.NEXTVAL, '당근', '당근이 도망갔어요 환불해주시나요?', TO_DATE('20230519', 'YYYYMMDD'), 'VegeRun');
+INSERT INTO QNA VALUES(QNA_SEQ.NEXTVAL, '감자', '감자가 갈색이라니 정상인가요?', TO_DATE('20230520', 'YYYYMMDD'), 'DrPotato1');
+INSERT INTO QNA VALUES(QNA_SEQ.NEXTVAL, '고구마', '고구마가 너무 달아요', TO_DATE('20230522', 'YYYYMMDD'), 'Sweetpotato1');
+INSERT INTO QNA VALUES(QNA_SEQ.NEXTVAL, '당근', '당근이 도망갔어요 환불해주시나요?', TO_DATE('20230519', 'YYYYMMDD'), 'VegeRun');
 COMMIT;
 
 INSERT INTO PRODUCT VALUES (PROD_SEQ.NEXTVAL, '고수',       '/storage\\product', 'V_01.PNG', 12000, 20); 
@@ -409,10 +409,19 @@ COMMIT;
 
 
 
-
-
-
-
+INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 1, '/storage\\recipe', '바게트 부르스게타', 'r_11.png');
+INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 2, '/storage\\recipe', '버섯꼬치구이', 'r_12.png');
+INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 3, '/storage\\recipe', '감자뇨끼', 'r_16.png');
+INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 4, '/storage\\recipe', '완두콩스프', 'r_29.png');
+INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 5, '/storage\\recipe', '가지피자', 'r_31.png');
+INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 6, '/storage\\recipe', '부리또', 'r_27.png');
+INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 7, '/storage\\recipe', '메쉬드포테이토', 'r_15.png');
+INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 8, '/storage\\recipe', '쌀국수', 'r_08.png');
+INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 9, '/storage\\recipe', '카레', 'r_10.png');
+INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 10, '/storage\\recipe', '라따뚜이', 'r_22.png');
+INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 11, '/storage\\recipe', '단호박찜', 'r_24.png');
+INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 12, '/storage\\recipe', '오크라조림', 'r_30.png');
+COMMIT;
 
 
 
