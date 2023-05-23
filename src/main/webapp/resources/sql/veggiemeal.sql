@@ -406,26 +406,3 @@ INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 7, '그린빈', '그린빈 맛있어�
 INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 8, '가지', '가지는 건강에 좋아요', 11000);
 INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 9, '호박고구마', '호박고구마! 호박고구마!', 13500);
 COMMIT;
-
-
-
-INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 1, '/storage\\recipe', '바게트 부르스게타', 'r_11.png');
-INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 2, '/storage\\recipe', '버섯꼬치구이', 'r_12.png');
-INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 3, '/storage\\recipe', '감자뇨끼', 'r_16.png');
-INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 4, '/storage\\recipe', '완두콩스프', 'r_29.png');
-INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 5, '/storage\\recipe', '가지피자', 'r_31.png');
-INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 6, '/storage\\recipe', '부리또', 'r_27.png');
-INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 7, '/storage\\recipe', '메쉬드포테이토', 'r_15.png');
-INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 8, '/storage\\recipe', '쌀국수', 'r_08.png');
-INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 9, '/storage\\recipe', '카레', 'r_10.png');
-INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 10, '/storage\\recipe', '라따뚜이', 'r_22.png');
-INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 11, '/storage\\recipe', '단호박찜', 'r_24.png');
-INSERT INTO RIMG VALUES(RECIPE_SEQ.NEXTVAL, 12, '/storage\\recipe', '오크라조림', 'r_30.png');
-COMMIT;
-
-
-
-
-
-
-
