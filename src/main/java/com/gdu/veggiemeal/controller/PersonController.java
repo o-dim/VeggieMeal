@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,12 +36,7 @@ public class PersonController {
 	public void login(HttpServletRequest request, HttpServletResponse response) {
 		personService.login(request, response);
 	}
-	
-//	@GetMapping("/login.form")
-//	public String loginPage(@RequestParam("refere") String url, Model model) {
-//		model.addAttribute("url", url);
-//		return "person/login";
-//	}
+
 	
 	@GetMapping("/register.form")
 	public String register() {
@@ -85,7 +79,7 @@ public class PersonController {
 	@PostMapping("/logout.do")
 	public String logout(HttpServletRequest request, HttpServletResponse response) {
 		personService.logout(request, response);
-		return "redirect:" + request.getContextPath() + "/index.do";
+		return "redirect:" + request.getContextPath() + "/person/index.form";
 	}
 	@GetMapping("/leave.do")
 	public void leave(HttpServletRequest request, HttpServletResponse response) {

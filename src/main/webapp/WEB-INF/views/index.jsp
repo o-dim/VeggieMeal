@@ -3,6 +3,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<c:if test="${sessionScope.id == null}">
+	<%@ include file="headfoot/header-x.jsp" %>
+</c:if>
+<c:if test="${sessionScope.id != null}">
+	<%@ include file="headfoot/header.jsp" %>
+</c:if>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -11,10 +17,26 @@
 <title>Insert title here</title>
 <script src="${contextPath}/resources/js/lib/jquery-3.6.4.min.js"></script>
 </head>
+<style>
+
+   .image1 {
+   		width : 100vw;
+   		height : 60vw;
+        background : url("${contextPath}/resources/images/index1.png");
+        background-size: 100% 100%;
+   }
+   .image2 {
+        width: 100vw;
+        height: 270vh;
+        background: url("${contextPath}/resources/images/2.png") scroll;
+        background-size: 100% 100%;
+   }
+
+</style>
 <body>
-	<iframe src="https://giphy.com/embed/TgFibAJdezKXUYsddv" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-	<h1>중꺽마</h1>
-	<h1>인덱스는 수정하면 안돼요!!!</h1>
+	
+    <div class="image1"></div>
+    <div class="image2"></div>
 	
 	<br>
 	<a href="${contextPath}/admin/adminPage.form">admin</a>

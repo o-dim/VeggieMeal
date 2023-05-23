@@ -15,7 +15,7 @@
 <script>
 	
 	function fnModify(){
-		location.href="${contextPath}/person/edit.form?perNo=${sessionScope.perNo}";
+		location.href="${contextPath}/person/edit.form";
 	}
 	
 	function fnOrder(){
@@ -52,15 +52,18 @@
 </script>
 </head>
 <style>
-	.mypage{
-		width: 500px;
-		height: 500px;
-		margin: 330px auto;
-		border-radius: 10px;
-		background-color: #F4F4F4;
-		padding: 30px 0;
+	.box {
+		position: absolute;
+		width: 1000px;
+		top: 330px;
+		left : calc(50% - 1000px/2);
+		background-position: center;
+		background: #F4F4F4;
+		border-radius: 59px;
+		margin-bottom: 100px;
+		
 	}
-	h1 {
+	h2 {
 		text-align: center;
 		margin-bottom: 50px;
 	}
@@ -79,17 +82,18 @@
 	}
 </style>
 <body>
-	<div class="mypage">
+	<div class="box">
 		<div>
-			<h1>마이페이지</h1>
+			<h2>마이페이지</h2>
 		</div>
 			<div class="mypagecontent">
 			<div>
-				<h2>${sessionScope.id}님 어서오세요</h2>
+				<h2>${sessionScope.loginId}님 어서오세요</h2>
 			</div>
 			<div>
 				<form action="${contextPath}/person/edit.form" method="get">
-					<input type="button" value="회원 정보 수정" onclick="fnModify()">					
+					<input type="button" value="회원 정보 수정" onclick="fnModify()">
+					<input type="hidden" value="${sessionScope.loginId}">					
 				</form>
 			</div>
 			<div>

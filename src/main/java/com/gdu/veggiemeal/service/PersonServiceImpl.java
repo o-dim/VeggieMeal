@@ -66,7 +66,7 @@ public class PersonServiceImpl implements PersonService {
 			out.println("<script>");
 			if(joinResult == 1) {
 				out.println("alert('회원가입 되었습니다')");
-				out.println("location.href = '" + request.getContextPath() + "/person/index.do';");
+				out.println("location.href = '" + request.getContextPath() + "/person/index.form';");
 			} else {
 				out.println("alert('회원가입에 실패하였습니다.)");
 				out.println("history.go(-2)");
@@ -90,9 +90,7 @@ public class PersonServiceImpl implements PersonService {
 	}
 	
 	@Override
-	public void login(HttpServletRequest request, HttpServletResponse response) {
-		String url = request.getParameter("url");
-		
+	public void login(HttpServletRequest request, HttpServletResponse response) {		
 		PersonDTO personDTO = new PersonDTO();
 		String id = request.getParameter("id");
 		personDTO.setId(id);
@@ -103,7 +101,13 @@ public class PersonServiceImpl implements PersonService {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginId", id);
 			try {
-				response.sendRedirect(url);
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('반갑습니다, ${sessionScope.id}님.');");
+				out.println("</script>");
+				response.sendRedirect(request.getContextPath() + "/person/index.form");
+				return;
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -111,16 +115,9 @@ public class PersonServiceImpl implements PersonService {
 			try {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = response.getWriter();
-				out.println("<script src=\"" + request.getContextPath() + "/resources/js/lib/jquery-3.6.4.min.js\"></script>");
-				out.println("<script src=\"https://cdn.jsdelivr.net/npm/sweetalert2@11\"></script>");
 				out.println("<script>");
-				out.println("Swal.fire({\n"
-						+ "icon: 'error',\n"
-						+ "title: '로그인 실패',\n"
-						+ "text: '일치하는 회원 정보가 없습니다.'})"
-						+ ".then(function(){"
-						+ "return;"
-						+ "});");
+				out.println("alert('로그인이 실패하였습니다.');");
+				out.println("location.href='" + request.getContextPath() + "/person/login.form';");
 				out.println("</script>");
 				out.flush();
 				out.close();
@@ -135,6 +132,18 @@ public class PersonServiceImpl implements PersonService {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("loginId") != null) {
 			session.invalidate();
+			try {
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('로그아웃 되었습니다.');");
+				out.println("location.href='" + request.getContextPath() + "/person/index.form';");
+				out.println("</script>");
+				out.flush();
+				out.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 	}
@@ -166,7 +175,7 @@ public class PersonServiceImpl implements PersonService {
 			out.println("<script>");
 			if(leaveResult == 1 && deleteResult == 1) {
 				session.invalidate();
-				out.println("location.href = '" + request.getContextPath() + "/person/index.do';");
+				out.println("location.href = '" + request.getContextPath() + "/person/index.form';");
 			} else {
 				out.println("alert('회원 탈퇴에 실패하였습니다')");
 				out.println("history.back()");

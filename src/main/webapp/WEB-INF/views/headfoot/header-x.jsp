@@ -39,14 +39,13 @@
         color: black;
         margin-left: 120px;
     }
-    .logout {
+    .login, .regi {
         text-decoration: none;
         float: right;
         margin-right: 120px;
-        margin-top: 50px;
+        margin-top: 30px;
         font-size: 14px;
     }
-
     img {
         width: 400px;
         margin-left: 10px;
@@ -96,7 +95,7 @@
     <header>
     	<div class="head">
         <a href="${contextPath}/person/index.form" class="logo">야채단속반<img src="${contextPath}/resources/images/logo.png"></a>
-        <a href="${contextPath}/person/logout.do" class="logout">로그아웃</a>
+        <a href="${contextPath}/person/login.form" class="login">로그인</a><a href="${contextPath}/person/register.form" class="regi">회원가입</a>
         </div>
         <nav class="mainMenu">
 	        <ul class="items">
