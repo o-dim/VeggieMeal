@@ -58,9 +58,7 @@ CREATE TABLE PRODUCT (
    PROD_PATH                   VARCHAR2(100 BYTE)   NOT NULL,
    PROD_IMG_NAME               VARCHAR2(100 BYTE)   NOT NULL,
    PROD_ORIGIN_PRICE           NUMBER                   NULL,
-   PROD_PRICE                  NUMBER                   NULL,
-   PROD_STOCK                  NUMBER                   NULL,
-   PROD_COUNT                  NUMBER                   NULL
+   PROD_STOCK                  NUMBER                   NULL
 );
 
 -- 상품판매 (판매 원티드 페이지)
@@ -69,9 +67,7 @@ CREATE TABLE SALE (
    PROD_CODE                   	 NUMBER               NOT NULL,
    SALE_TITLE                    VARCHAR2(100 BYTE)       NULL,
    SALE_CONTENT                  VARCHAR2(100 BYTE)       NULL,
-   SALE_PRICE                    NUMBER                   NULL,
-   PROD_PATH                     VARCHAR2(100 BYTE)   NOT NULL,
-   PROD_IMG_NAME                 VARCHAR2(100 BYTE)   NOT NULL
+   SALE_PRICE                    NUMBER                   NULL
 );
 
 -- 상품이미지 : 상품이미지번호, 상품코드, 경로, 파일명, 메인이미지 ( 대표이미지라면1, 아니면0)
@@ -352,6 +348,8 @@ INSERT INTO PERSON VALUES (
     'mango'
 );
 
+
+
 INSERT INTO PERSON VALUES (
     PERSON_SEQ.NEXTVAL,
     'grape123!',
@@ -379,4 +377,46 @@ INSERT INTO PERSON VALUES (
     '아보카',
     SYSDATE,
     'avocado'
-); COMMIT;
+); 
+
+
+INSERT INTO QNA VALUES(USER_SEQ.NEXTVAL, '감자', '감자가 갈색이라니 정상인가요?', TO_DATE('20230520', 'YYYYMMDD'), 'DrPotato1');
+INSERT INTO QNA VALUES(USER_SEQ.NEXTVAL, '고구마', '고구마가 너무 달아요', TO_DATE('20230522', 'YYYYMMDD'), 'Sweetpotato1');
+INSERT INTO QNA VALUES(USER_SEQ.NEXTVAL, '당근', '당근이 도망갔어요 환불해주시나요?', TO_DATE('20230519', 'YYYYMMDD'), 'VegeRun');
+COMMIT;
+
+INSERT INTO PRODUCT VALUES (PROD_SEQ.NEXTVAL, '고수',       '/storage\\product', 'V_01.PNG', 12000, 20); 
+INSERT INTO PRODUCT VALUES (PROD_SEQ.NEXTVAL, '깻잎',       '/storage\\product', 'V_02.PNG', 10000, 20);
+INSERT INTO PRODUCT VALUES (PROD_SEQ.NEXTVAL, '땅콩',       '/storage\\product', 'V_03.PNG', 8500,  20); 
+INSERT INTO PRODUCT VALUES (PROD_SEQ.NEXTVAL, '양배추',     '/storage\\product', 'V_05.PNG', 10000, 20); 
+INSERT INTO PRODUCT VALUES (PROD_SEQ.NEXTVAL, '오이',       '/storage\\product', 'V_07.PNG', 20000, 20); 
+INSERT INTO PRODUCT VALUES (PROD_SEQ.NEXTVAL, '마늘',       '/storage\\product', 'V_32.PNG', 16000, 20); 
+INSERT INTO PRODUCT VALUES (PROD_SEQ.NEXTVAL, '그린빈',     '/storage\\product', 'V_21.PNG', 15000, 20); 
+INSERT INTO PRODUCT VALUES (PROD_SEQ.NEXTVAL, '가지',       '/storage\\product', 'V_11.PNG', 10000, 20);
+INSERT INTO PRODUCT VALUES (PROD_SEQ.NEXTVAL, '호박고구마', '/storage\\product', 'V_38.PNG', 12000, 20);
+COMMIT;
+
+INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 1, '맛 좋은 고수', '강화도 해풍 맞고 자란 고수', 14000);
+INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 2, '깻잎', '남해에서 올라온 깻잎', 12000);
+INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 3, '땅땅콩콩', '제주도에서 건너온 땅콩', 17000);
+INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 4, '양배추', '양구의 자랑 양배추', 14000);
+INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 5, '오이', '전국 각지에서 데려온 오이', 14000);
+INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 6, '너마늘사랑해', '한국인의 요리에는 무조건 들어가는 마늘', 14000);
+INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 7, '그린빈', '그린빈 맛있어요', 17000);
+INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 8, '가지', '가지는 건강에 좋아요', 11000);
+INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 9, '호박고구마', '호박고구마! 호박고구마!', 13500);
+COMMIT;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
