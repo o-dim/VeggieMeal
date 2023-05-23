@@ -350,7 +350,7 @@
 				<div id="id_msg" class="id_init"></div>
 				<div>
 					<div>이메일</div>
-	        		<input type="text" name="email" id="email">
+	        		<input type="text" name="email" id="email" placeholder="example@email.com">
 			        <input type="button" value="인증번호받기" id="btnGetCode">
 					<div id="email_msg"></div>
 					<input type="text" id="authCode" placeholder="인증코드 입력">
@@ -364,7 +364,7 @@
 				<input type="password" name="pw" id="pw1" placeholder="비밀번호는 8자이상입니다">
 				<div id="pw_msg1" class="pw_init"></div>
 				<div>비밀번호 확인</div>
-				<input type="password" id="pw2" placeholder="비밀번호는 8자이상어쩌고">
+				<input type="password" id="pw2" placeholder="비밀번호는 8자 이상입니다">
 				<!-- 패스워드 일치시, 불일치시 메세지 -->
 				<div id="pw_msg2" class="pw_init"></div>
 					

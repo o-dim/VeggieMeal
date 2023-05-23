@@ -20,8 +20,8 @@ public class LoginInterceptor implements HandlerInterceptor {
 		      response.setContentType("text/html; charset=UTF-8");
 		      PrintWriter out = response.getWriter();
 		      out.println("<script>");
-		      out.println("alert('로그인이 필요한 기능입니다. 로그인 창으로 이동합니다'))");
-		      out.println("location.href='" + request.getContextPath() + "/person/login.do'");
+		      out.println("alert('로그인이 필요한 기능입니다. 로그인 창으로 이동합니다')");
+		      out.println("location.href='" + request.getContextPath() + "/person/login.form'");
 		      out.println("</script>");
 		      out.flush();
 		      out.close();
