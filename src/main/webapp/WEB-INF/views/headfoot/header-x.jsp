@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&family=Open+Sans:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
-    @font-face {
+     @font-face {
         font-family: 'Tenada';
         src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
         font-weight: normal;
@@ -39,94 +39,122 @@
         color: black;
         margin-left: 120px;
     }
+    .re {
+   	    float: right;
+        margin-right: 140px;
+    }
     .login, .regi {
         text-decoration: none;
-        float: right;
-        margin-right: 120px;
-        margin-top: 30px;
+        margin-top: 50px;
+        margin-left : 10px;
         font-size: 14px;
     }
+
     img {
         width: 400px;
         margin-left: 10px;
     }
-    nav {
+    .gnb_wrap {
         width: 100%;
+        text-align: center;
     }
-    ul {
+    .gnb {
+    	width : 900px;
+    	margin : 0 auto;
+    }
+    .gnb ul {
     	display: flex;
         list-style: none;
     }
-    li {
+    .gnb ul > li {
+    	width : 200px;
+    	height : 100px;
     	list-style : none;
+    	text-align: center;
     }
-    .item {
-        padding-right: 50px;
-        padding-left: 50px;
-        width: 25%;
+    .gnb ul > li > a {
+    	display: block;
+    	width: 100%;
+    	height: 100%;
     }
+    
+    .gnb ul > li:hover > a {
+    	color : green;
+    	height : 100px;
+    }
+    
+    .dropdown {
+    	position: relative;
+    	display: inline-block;
+    }
+    .dropdown:hover .subMenu {
+    	display: block;
+    }
+    
     .subMenu {
-        display: none;
+    	display: none;
+    	position: absolute;
+    	background-color: #f7f9fa;
+    	width : 100%;
+ 		z-index: 1;
     }
-    .item:hover .subMenu{
-        display: block;
-        cursor: pointer;
+    
+    .subMenu div:hover {
+    	color : #32CD32;
     }
-    .menu, .subMenu > div {
-        padding-top: 20px;
-        text-align: center;
+    
+    .subMenu a {
+    	display: block;
+    	text-decoration : none;
+    	width: 100%;
+    	height: 100%;
+    	margin-top : 10px;
+    	margin-bottom: 10px;
     }
-    a, a:visited {
-    	text-decoration: none;
-    	color: black;
-    }
-    .subMenu > div:hover {
-        color: green;
-    }
+
+   
 </style>
-<script>
-	$('.mypage').on('click', function() {
-		location.href = '${contextPath}/person/mypage.form';
-		
-	})
-</script>
 <body>
     <!-- 로그인 안 했을 때의 Header 입니당 -->
     <header>
     	<div class="head">
         <a href="${contextPath}/person/index.form" class="logo">야채단속반<img src="${contextPath}/resources/images/logo.png"></a>
-        <a href="${contextPath}/person/login.form" class="login">로그인</a><a href="${contextPath}/person/register.form" class="regi">회원가입</a>
+        <div class="re">
+	        <a href="${contextPath}/person/login.form" class="login">로그인</a>
+	        <a href="${contextPath}/person/register.form" class="regi">회원가입</a>        
         </div>
-        <nav class="mainMenu">
-	        <ul class="items">
-	            <li class="item">
-	                <div class="menu">WANTED</div>
-	        		<div class="subMenu">
-	        			<div><a href="${contextPath}/menu1/wanted.form">상품목록</a></div>
-	        		</div>
-	            </li>
-	            <li class="item">
-	                <div class="menu">RECIPE</div>
-	        		<div class="subMenu">
-	        			<div><a href="${contextPath}/menu2/recipe.form">레시피 목록</a></div>
-	        			<div><a>레시피 작성</a></div>
-	        		</div>
-	            </li>
-	            <li class="item">
-	                <div class="menu">CART</div>
-	        		<div class="subMenu">
-	        			<div><a href="${contextPath}/order/cart.form">장바구니</a></div>
-	        		</div>
-	            </li>
-	            <li class="item">
-	                <div class="menu">MY PAGE</div>
-	        		<div class="subMenu">
-	        			<div><a href="${contextPath}/person/mypage.form">회원정보</a></div>
-	        			<div><a href="${contextPath}/qna/list.form">QnA</a></div>
-	        		</div>
-	            </li>
-	        </ul>
-		</nav>
+        </div>
+        <div class="gnb_wrap">
+        	<div class="gnb">
+		        <ul>
+		            <li class="dropdown">
+		                <div class="menu">WANTED</div>
+		        		<div class="subMenu">
+		        			<div><a href="${contextPath}/menu1/wanted.form">상품목록</a></div>
+		        		</div>
+		            </li>
+		            <li class="dropdown">
+		                <div class="menu">RECIPE</div>
+		        		<div class="subMenu">
+		        			<div><a href="${contextPath}/menu2/recipe.form">레시피 목록</a></div>
+		        		</div>
+		            </li>
+		            <li class="dropdown">
+		                <div class="menu">CART</div>
+		        		<div class="subMenu">
+		        			<div><a href="${contextPath}/order/cart.form">장바구니</a></div>
+		        		</div>
+		            </li>
+		            <li class="dropdown">
+		                <div class="menu">MY PAGE</div>
+		        		<div class="subMenu">
+		        			<div><a href="${contextPath}/person/mypage.form">회원정보</a></div>
+		        			<div><a href="${contextPath}/qna/list.form">QnA</a></div>
+		        		</div>
+		            </li>
+		        </ul>
+	        </div>
+		</div>
     </header>
 </body>
 </html>

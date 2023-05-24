@@ -371,10 +371,10 @@
 				<div class="gender">
 					<span>성별</span>
 					<label for="male">
-						<input type="radio" name="gender" value="male" id="male">남성
+						<input type="radio" name="gender" value="male" id="1">남성
 					</label>
 					<label for="female">
-						<input type="radio" name="gender" value="female" id="female">여성
+						<input type="radio" name="gender" value="female" id="2">여성
 					</label>
 				</div>
 				<div>주소</div>

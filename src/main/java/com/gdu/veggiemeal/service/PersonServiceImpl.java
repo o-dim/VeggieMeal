@@ -54,9 +54,7 @@ public class PersonServiceImpl implements PersonService {
 		personDTO.setDetailAddress(securityUtil.preventXSS(request.getParameter("detailAddress")));
 		personDTO.setEmail(request.getParameter("email"));
 		personDTO.setGender(request.getParameter("gender"));
-		
-		// 악관동의부분 처리 필요
-		
+				
 		int joinResult = personMapper.insertPerson(personDTO);
 		
 		try {
@@ -130,6 +128,7 @@ public class PersonServiceImpl implements PersonService {
 	@Override
 	public void logout(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("loginId");
 		if(session.getAttribute("loginId") != null) {
 			session.invalidate();
 			try {

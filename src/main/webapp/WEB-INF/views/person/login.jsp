@@ -94,7 +94,6 @@
 		<h1>로그인</h1>
 		<div class="box2">
 		<form action="${contextPath}/person/login.do" method="post" id="login_frm">
-			<input type="hidden" name="url" value="${url}">
 			<div class="id">
 				<div>아이디</div>
 				<input type="text" name="id" id="id">
@@ -113,3 +112,4 @@
 
 </body>
 </html>
+

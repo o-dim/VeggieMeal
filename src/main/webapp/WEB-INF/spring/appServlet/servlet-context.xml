@@ -35,7 +35,7 @@
 			<mapping path="/person/register.form"/>
 			<beans:bean class="com.gdu.veggiemeal.interceptor.RegisterInterceptor"></beans:bean>
 		</interceptor>
-		
+	
 	</interceptors>
 	
 	

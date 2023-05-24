@@ -76,7 +76,7 @@ public class PersonController {
 		return personService.sendAuthCode(email);
 	}
 	
-	@PostMapping("/logout.do")
+	@GetMapping("/logout.do")
 	public String logout(HttpServletRequest request, HttpServletResponse response) {
 		personService.logout(request, response);
 		return "redirect:" + request.getContextPath() + "/person/index.form";

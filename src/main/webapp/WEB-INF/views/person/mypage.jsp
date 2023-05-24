@@ -13,9 +13,9 @@
 <script src="${contextPath}/resources/js/lib/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-	
+
 	function fnModify(){
-		location.href="${contextPath}/person/edit.form";
+		location.href="${contextPath}/person/edit.form"
 	}
 	
 	function fnOrder(){
@@ -46,7 +46,7 @@
 					location.href="${contextPath}/person/leave.do";			
 			  		Swal.fire('탈퇴되었습니다.', 'success');
 			   }
-			});
+			})
 	}
 	
 </script>
@@ -91,10 +91,7 @@
 				<h2>${sessionScope.loginId}님 어서오세요</h2>
 			</div>
 			<div>
-				<form action="${contextPath}/person/edit.form" method="get">
-					<input type="button" value="회원 정보 수정" onclick="fnModify()">
-					<input type="hidden" value="${sessionScope.loginId}">					
-				</form>
+				<input type="button" value="회원 정보 수정" onclick="fnModify()">	
 			</div>
 			<div>
 				<input type="button" value="주문확인 및 취소" onclick="fnOrder()">

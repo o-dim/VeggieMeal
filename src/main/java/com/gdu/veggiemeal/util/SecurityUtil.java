@@ -1,5 +1,6 @@
 package com.gdu.veggiemeal.util;
 
+import java.io.Console;
 import java.security.MessageDigest;
 
 import org.apache.commons.lang3.RandomStringUtils;
