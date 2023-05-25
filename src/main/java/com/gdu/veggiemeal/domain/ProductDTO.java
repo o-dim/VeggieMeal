@@ -14,9 +14,7 @@ public class ProductDTO {
 	private String prodPath;
 	private String prodImgName;
 	private int prodOriginPrice;
-	private int prodPrice;
 	private int prodStock;
-	private int prodCount;
 	
 
 }
