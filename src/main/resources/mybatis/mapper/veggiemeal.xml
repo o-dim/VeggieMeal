@@ -6,10 +6,10 @@
 <!-- namespace는 @Mapper를 지정한다. -->
 <mapper namespace="com.gdu.veggiemeal.mapper.AdminPageMapper">
 
-	<select id="selectVeggiemealByNo" parameterType="int" resultType="RImgDTO">
+<!-- 	<select id="selectVeggiemealByNo" parameterType="int" resultType="RImgDTO">
 		SELECT RECIPE_NO, RIMG_NO
 		  FROM RIMG
 		 WHERE RECIPE_NO = #{recipeNo}
-	</select>
+	</select> -->
 
 </mapper>

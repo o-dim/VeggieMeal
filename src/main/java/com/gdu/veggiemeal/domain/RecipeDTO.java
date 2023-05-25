@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class RecipeDTO {
 	
-	private int RecipeNo;
+	private int recipeNo;
 	private PersonDTO id;
 	private String title;
 	private String tool;
