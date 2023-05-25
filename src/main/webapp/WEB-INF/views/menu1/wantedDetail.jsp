@@ -17,15 +17,61 @@
 <script>
 $(document).ready(function(){
 	$('#spinner').spinner({
-		min:1,
+		min:0,
 		max:99,
 		step:1,
 		spin: function(event, ui){
-			$('.sum').html(${s.salePrice} * ui.value);
+			$('.sum').html((${s.salePrice} * ui.value).toLocaleString('ko-KR') + '원');
 		}
 	});
 });
+
+/*
+// 서버로 전송할 데이터
+const form = {
+	
+	memberId : '${person.Id}'.
+	saleNo : '${sale.saleNo}',
+	saleCount : ''
+	
+}
+
+
+장바구니 추가 버튼 
  
+
+$(".btn_cart").on("click", function(e) {
+	
+	form.bookCount = $(".quantity_input").val();
+	$.ajax({
+		url: '/cart/add',
+		type: 'POST',
+		data: form,
+		success: function(result){
+			cartAlert(result);
+		}
+	})
+	
+});
+
+function cartAlert(result){
+	if(result == '0'){
+		alert("장바구니에 추가를 하지 못하였습니다.");
+	} else if(result == '1'){
+		alert("장바구니에 추가되었습니다.");
+	} else if(result == '2'){
+		alert("장바구니에 이미 추가되어져 있습니다.");
+	} else if(result == '5'){
+		alert("로그인이 필요합니다.");	
+	}
+}
+*/
+
+function fnCart() {
+	location.href="${contextPath}/order/cart.do?carNo";
+}
+ 
+
 </script>
 <style>
 	
@@ -46,7 +92,14 @@ $(document).ready(function(){
      
     	margin-right: 300px;
 		margin-left: 300px;
-		justify
+
+     	
+     }
+     
+     input {
+     
+     	border: none;
+     	font-size: 16px;
      	
      }
      
@@ -64,9 +117,11 @@ $(document).ready(function(){
    		margin-bottom: 10px;
    	}
    	
-   	.btn_count {
+   	div {
+   		margin-top: 10px;
    		margin-bottom: 10px;
    	}
+   	
    	
      .cart {
      	display: block;
@@ -99,37 +154,42 @@ $(document).ready(function(){
 </head>
 <body>
 
+
 <c:if test="${sessionScope.id == null}">
 	<%@ include file="../headfoot/header-x.jsp" %>
 </c:if>
 <c:if test="${sessionScope.id != null}">
 	<%@ include file="../headfoot/header.jsp" %>
 </c:if>
-
+<form method="post" id="frm_product" name="frm_product" action="${contextPath}/order/arrest.do">
 
 		<div class="products">
 			<img src="${contextPath}/menu1/display.do?saleNo=${s.saleNo}" style="width:400px; height: 260px;">
 				<div id="prouctsInfo">
-					<p class="name"><span>상품명: ${s.saleTitle}</span></p>
+					<p class="name"><span>상품명 : ${s.saleTitle}</span></p>
 					<p class="price">
-					   상품가격: <fmt:formatNumber pattern="###,###,###" value="${s.salePrice}"/>원
+					   상품가격 : <fmt:formatNumber pattern="###,###,###" value="${s.salePrice}"/>원
 					</p>
 					<div class=btn>
 					  <div class="btn_count">
-					  	<p>
-						  <label for="spinner">주문수량</label>
-						  <span><input type="text" id="spinner" name="count" value="1"/></span><span class="sum">합계</span>
-						</p>
+					  	<div>
+						  <label for="spinner">주문수량 :</label>
+						  <span><input type="text" id="spinner" name="count" value="0"/></span>
+						  <div><input type="text" id="spinner" value="총 합계 :" readOnly=readOnly size= "3"/><span class="sum">0원</span></div>
+						</div>
     				  </div>
 					 <div class="btn_group">
-				        <button class="cart" style="cursor: pointer;">장바구니</button>
+				        <button class="cart" style="cursor: pointer;" onclick="fnCart()">장바구니</button>
 				        <button class="jjim" style="cursor: pointer;">찜해두기</button>
 				    </div>		
+				    <input type="hidden" name="saleNo" value="${s.saleNo}"/>
 				    <button class="now" style="cursor: pointer;">지금 바로 검거하기</button>
 				</div>
 			</div>
 		</div>
 			
+</form>
+
 
 			<div class="productsDetail">
 				<hr>
@@ -144,6 +204,6 @@ $(document).ready(function(){
 			</div>
 
 
-
+<%@ include file="../headfoot/carrot.jsp" %>
 </body>
 </html>
