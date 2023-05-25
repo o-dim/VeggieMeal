@@ -11,7 +11,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="${contextPath}/resources/js/lib/jquery-3.6.4.min.js"></script>
-</head>
+<!-- swiper 외부 라이브러리 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script type="text/javascript">
 	function fnGo() {
 		location.href = "${contextPath}/menu1/wanted.do";
@@ -19,7 +21,8 @@
 	function clickMe() {
 		window.scrollTo(0,0);
 	}
-</script>
+</script>	
+</head>
 <style>
    	@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
 
@@ -92,7 +95,23 @@
 		position: fixed;
 		z-index: 1;
 	}
-
+	
+	#topBtn:hover {
+		cursor: pointer;
+	}
+	
+	.swiper {
+		width: 40%;
+		height: 150px;
+		position: relative;
+	}
+	.swiper .swiper-slide {
+		height : 150px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
 </style>
 <body>
 	<c:if test="${sessionScope.id == null}">
@@ -125,6 +144,24 @@
 	<a href="${contextPath}/order/cart.form">cart</a>
 	<br>
 	<a href="${contextPath}/qna/list.form">qna list</a>
+	
+	<!-- Slider main container -->
+	<div class="swiper">
+	  <!-- Additional required wrapper -->
+		<div class="swiper-wrapper">
+			  <!-- Slides -->
+	  		<div class="swiper-slide"><img src="${contextPath}/resources/images/des1.png"></div>
+	  		<div class="swiper-slide"><img src="${contextPath}/resources/images/des2.png"></div>
+	  		<div class="swiper-slide"><img src="${contextPath}/resources/images/des3.png"></div>
+		</div>
+		
+		<!-- If we need navigation buttons -->
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+		
+		<!-- If we need scrollbar -->
+	  	<div class="swiper-scrollbar"></div>
+	</div>
 	
 		<!--  top btn -->
 	<div id="topBtn" onclick="clickMe()">
