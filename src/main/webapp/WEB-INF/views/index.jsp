@@ -101,15 +101,19 @@
 	}
 	
 	.swiper {
-		width: 40%;
-		height: 150px;
+		width: 60%;
+		height: 300px;
 		position: relative;
 	}
 	.swiper .swiper-slide {
-		height : 150px;
+		width : 30%;
+		height : 300px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+	.swiper .swiper-slide > img {
+		width : 210px;
 	}
 	
 </style>
@@ -150,19 +154,26 @@
 	  <!-- Additional required wrapper -->
 		<div class="swiper-wrapper">
 			  <!-- Slides -->
-	  		<div class="swiper-slide"><img src="${contextPath}/resources/images/des1.png"></div>
-	  		<div class="swiper-slide"><img src="${contextPath}/resources/images/des2.png"></div>
+	  		<div class="swiper-slide"><img src="${contextPath}/resources/images/des3.png"></div>
+	  		<div class="swiper-slide"><img src="${contextPath}/resources/images/des3.png"></div>
+	  		<div class="swiper-slide"><img src="${contextPath}/resources/images/des3.png"></div>
+	  		<div class="swiper-slide"><img src="${contextPath}/resources/images/des3.png"></div>
 	  		<div class="swiper-slide"><img src="${contextPath}/resources/images/des3.png"></div>
 		</div>
-		
-		<!-- If we need navigation buttons -->
-		<div class="swiper-button-prev"></div>
-		<div class="swiper-button-next"></div>
-		
-		<!-- If we need scrollbar -->
-	  	<div class="swiper-scrollbar"></div>
 	</div>
-	
+	<script>
+	var swiper = new Swiper(".swiper", {
+		  effect: "coverflow",
+		  grabCursor: true,
+		  centeredSlides: true,
+		  slidesPerView: "auto",
+		  loop: true,
+		  spaceBetween: 32,
+		  coverflowEffect: {
+		    rotate: 0
+		  }
+		});
+	</script>
 		<!--  top btn -->
 	<div id="topBtn" onclick="clickMe()">
 		<div><i class="fa-solid fa-carrot fa-lg"></i></div><div>top</div>
