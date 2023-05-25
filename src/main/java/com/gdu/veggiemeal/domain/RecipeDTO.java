@@ -12,4 +12,5 @@ public class RecipeDTO {
 	private String content2;
 	private Date writeAt;
 	private Date modifiedAt;
+	private String imgfileName;
 }
