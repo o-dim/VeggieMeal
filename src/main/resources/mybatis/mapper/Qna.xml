@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace는 @Mapper를 지정한다. -->
+<mapper namespace="com.gdu.veggiemeal.mapper.QnaMapper">
+<insert id="addQnaList" parameterType="QnaDTO">
+	INSERT INTO QNA(
+	  QNA_NO
+	, TITLE
+	, CONTENT
+	, WRITE_AT
+	, ID
+	) VALUES (
+	  SEQ_QNA.NEXTVAL
+	, #{title}
+	, #{content}
+	, SYSDATE
+	, #{id}
+	)
+</insert>
+
+<resultMap type="QnaDTO" id="QnaMap">
+	<id column="QNA_NO" property="qnaNo" />
+	<result column="TITLE" property="title" />
+	<result column="CONTENT" property="content" />
+	<result column="WRITE_AT" property="writeAt" />
+	<association javaType="PersonDTO" property="personDTO">
+		<id column="PER_NO" property="perNo" />
+		<result column="ID" property="id" />
+	</association>
+</resultMap>
+
+
+
+<select id="selectPersonById" resultType="PersonDTO" parameterType="String">
+  SELECT * FROM PERSON WHERE ID = #{id}
+</select>
+
+<select id="getQnaCount" resultType="int">
+	select count(*)
+	  from qna
+</select>
+
+<select id="getQnaList" parameterType="Map" resultMap="QnaMap">
+  SELECT A.QNA_NO, A.TITLE, A.CONTENT, A.WRITE_AT, A.ID
+	FROM (SELECT ROW_NUMBER() OVER(ORDER BY QNA_NO DESC) RN, QNA_NO, TITLE, CONTENT, WRITE_AT, ID
+	        FROM QNA) A
+   WHERE A.RN BETWEEN #{begin} AND #{end}
+</select>
+
+ 
+ 
+ 
+  
+
+	
+
+	
+
+
+</mapper>

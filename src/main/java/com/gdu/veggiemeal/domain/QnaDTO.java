@@ -15,5 +15,6 @@ public class QnaDTO {
 	private String title;
 	private String content;
 	private Date writeAt;
-	private PersonDTO id;
+	private PersonDTO personDTO;
+	
 }
