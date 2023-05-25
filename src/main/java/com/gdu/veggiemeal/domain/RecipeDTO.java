@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class RecipeDTO {
 	
-	private int RecipeNo;
+	private int recipeNo;
 	private PersonDTO id;
 	private String title;
 	private String tool;
@@ -12,4 +12,5 @@ public class RecipeDTO {
 	private String content2;
 	private Date writeAt;
 	private Date modifiedAt;
+	private String imgfileName;
 }
