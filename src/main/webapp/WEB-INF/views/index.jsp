@@ -113,8 +113,6 @@
 	<a href="${contextPath}/order/cart.form">cart</a>
 	<br>
 	<a href="${contextPath}/qna/list.form">qna list</a>
-	
-	<%@ include file="headfoot/footer.jsp" %>
-	
+		
 </body>
 </html>

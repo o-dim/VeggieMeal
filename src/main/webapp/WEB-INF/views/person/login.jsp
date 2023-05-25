@@ -83,9 +83,7 @@
 	
 </style>
 <body>
-	<header>
-		<%@ include file="../headfoot/header-x.jsp" %>	
-	</header>
+	<%@ include file="../headfoot/header-x.jsp" %>	
 	<!-- 로그인 -->
 	<div class="box">
 		<h1>로그인</h1>
@@ -106,9 +104,6 @@
 		</form>
 		</div>
 	</div>
-	<footer>
-		<%@ include file="../headfoot/footer.jsp" %>
-	</footer>
 </body>
 </html>
 
