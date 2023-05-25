@@ -31,6 +31,11 @@
 				$('#id_msg').removeClass('id_init');
 				$('#id_msg').text('아이디는 4자 이상, 숫자, 영어, 하이픈 및 언더바만 가능합니다.');
 				return;
+			} else {
+				$('#id_msg').addClass('id_true');
+				$('#id_msg').removeClass('id_init');
+				$('#id_msg').removeClass('id_false');
+				$('#id_msg').text('');
 			}
 			// 중복 아이디 테스트
 			$.ajax({
