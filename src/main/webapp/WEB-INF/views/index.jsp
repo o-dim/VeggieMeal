@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -18,14 +17,9 @@
 	function fnGo() {
 		location.href = "${contextPath}/menu1/wanted.do";
 	}
-	function clickMe() {
-		window.scrollTo(0,0);
-	}
 </script>	
 </head>
 <style>
-   	@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
-
     @font-face {
         font-family: 'Tenada';
         src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
@@ -88,18 +82,7 @@
         background: url("${contextPath}/resources/images/2.png") scroll;
         background-size: 100% 100%;
    }
-   
-   	#topBtn{
-		top: 90%;
-		left: 90%;
-		position: fixed;
-		z-index: 1;
-	}
-	
-	#topBtn:hover {
-		cursor: pointer;
-	}
-	
+
 	.swiper {
 		width: 60%;
 		height: 300px;
@@ -118,10 +101,10 @@
 	
 </style>
 <body>
-	<c:if test="${sessionScope.id == null}">
+	<c:if test="${sessionScope.loginId == null}">
 		<%@ include file="headfoot/header-x.jsp" %>
 	</c:if>
-	<c:if test="${sessionScope.id != null}">
+	<c:if test="${sessionScope.loginId != null}">
 		<%@ include file="headfoot/header.jsp" %>
 	</c:if>
 	<div class="main">
@@ -148,17 +131,14 @@
 	<a href="${contextPath}/order/cart.form">cart</a>
 	<br>
 	<a href="${contextPath}/qna/list.form">qna list</a>
-	
 	<!-- Slider main container -->
 	<div class="swiper">
 	  <!-- Additional required wrapper -->
 		<div class="swiper-wrapper">
 			  <!-- Slides -->
-	  		<div class="swiper-slide"><img src="${contextPath}/resources/images/des3.png"></div>
-	  		<div class="swiper-slide"><img src="${contextPath}/resources/images/des3.png"></div>
-	  		<div class="swiper-slide"><img src="${contextPath}/resources/images/des3.png"></div>
-	  		<div class="swiper-slide"><img src="${contextPath}/resources/images/des3.png"></div>
-	  		<div class="swiper-slide"><img src="${contextPath}/resources/images/des3.png"></div>
+			<c:forEach items="${recipeList}" var="r">
+	  		<div class="swiper-slide"><img src="${contextPath}/resources/images/${r.imgfileName}"></div>
+	  		</c:forEach>
 		</div>
 	</div>
 	<script>
@@ -174,9 +154,6 @@
 		  }
 		});
 	</script>
-		<!--  top btn -->
-	<div id="topBtn" onclick="clickMe()">
-		<div><i class="fa-solid fa-carrot fa-lg"></i></div><div>top</div>
-	</div>
+	<%@ include file="headfoot/carrot.jsp" %>
 </body>
 </html>

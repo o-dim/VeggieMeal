@@ -254,7 +254,6 @@
 </script>
 <!-- 클래스는 . 아이디는 # -->
 <style type="text/css">
-	
 	.box {
 		width: 1000px;
 		top: 350px;
@@ -330,6 +329,7 @@
 		font-size: 14px;
 		margin : 0px 0px 10px 0px;
 	}
+
 </style>
 </head>
 <body>
@@ -439,5 +439,6 @@
 		        }).open();
 		    }
 		</script>
+<%@ include file="../headfoot/carrot.jsp" %>
 </body>
 </html>
