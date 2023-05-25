@@ -13,11 +13,11 @@
 	, WRITE_AT
 	, ID
 	) VALUES (
-	  SEQ_QNA.NEXTVAL
+	  QNA_SEQ.NEXTVAL
 	, #{title}
 	, #{content}
 	, SYSDATE
-	, #{id}
+	, #{personDTO.id}
 	)
 </insert>
 
@@ -50,6 +50,11 @@
    WHERE A.RN BETWEEN #{begin} AND #{end}
 </select>
 
+<select id="getQnaByNo" parameterType="int" resultType="QnaDTO">
+   SELECT TITLE, CONTENT, ID, WRITE_AT
+   FROM QNA
+WHERE QNA_NO = #{qnoNo}
+</select>
  
  
  
