@@ -19,7 +19,9 @@
         font-weight: normal;
         font-style: normal;
     }
+    
 	footer {
+		position: inherit;
 		bottom: 0;
 		width: 100%;
 		height : 30vh;

@@ -29,10 +29,15 @@
 	$(function() {
 		fnLogin();
 	})
+	function clickMe() {
+		window.scrollTo(0,0);
+	}
 	
 </script>
 </head>
 <style>
+	@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
+	
 	.box {
 		position: absolute;
 		width: 1000px;
@@ -79,11 +84,20 @@
 		text-align: center;
 		margin-bottom: 200px;
 	}
+	#topBtn{
+		top: 90%;
+		left: 90%;
+		position: fixed;
+		z-index: 1;
+	}
+	.fa-solid fa-carrot {
+		display: flex;
+		justify-content: center;
+	}
 
-	
 </style>
 <body>
-	<%@ include file="../headfoot/header-x.jsp" %>	
+	<%@ include file="../headfoot/header-x.jsp" %>
 	<!-- 로그인 -->
 	<div class="box">
 		<h1>로그인</h1>
@@ -103,6 +117,10 @@
 			<div class="notyet">아직 회원이 아니신가요? <span style="cursor: pointer;" onclick="fnRegister()">회원가입하러가기</span></div>
 		</form>
 		</div>
+	</div>
+	<!--  top btn -->
+	<div id="topBtn" onclick="clickMe()">
+		<div><i class="fa-solid fa-carrot fa-lg"></i></div><div>top</div>
 	</div>
 </body>
 </html>
