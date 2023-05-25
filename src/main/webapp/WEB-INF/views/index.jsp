@@ -15,7 +15,7 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script type="text/javascript">
 	function fnGo() {
-		location.href = "${contextPath}/menu1/wanted.do";
+		location.href = "${contextPath}/menu1/wanted.form";
 	}
 </script>	
 </head>
@@ -26,12 +26,6 @@
         font-weight: normal;
         font-style: normal;
     }
-    @font-face {
-    font-family: 'HANAMDAUM';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/HANAMDAUM.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-	}
 	@font-face {
 	    font-family: 'OTWelcomeRA';
 	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
@@ -69,6 +63,9 @@
     	height: 40px;
     	display: block;
     }
+    .goBtn:hover {
+    	cursor: pointer;
+    }
    .image1 {
    		width : 100vw;
    		height : 60vw;
@@ -98,6 +95,7 @@
 	.swiper .swiper-slide > img {
 		width : 210px;
 	}
+	
 	
 </style>
 <body>
