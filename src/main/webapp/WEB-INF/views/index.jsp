@@ -16,8 +16,13 @@
 	function fnGo() {
 		location.href = "${contextPath}/menu1/wanted.do";
 	}
+	function clickMe() {
+		window.scrollTo(0,0);
+	}
 </script>
 <style>
+   	@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
+
     @font-face {
         font-family: 'Tenada';
         src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
@@ -80,15 +85,22 @@
         background: url("${contextPath}/resources/images/2.png") scroll;
         background-size: 100% 100%;
    }
+   
+   	#topBtn{
+		top: 90%;
+		left: 90%;
+		position: fixed;
+		z-index: 1;
+	}
 
 </style>
 <body>
-<c:if test="${sessionScope.id == null}">
-	<%@ include file="headfoot/header-x.jsp" %>
-</c:if>
-<c:if test="${sessionScope.id != null}">
-	<%@ include file="headfoot/header.jsp" %>
-</c:if>
+	<c:if test="${sessionScope.id == null}">
+		<%@ include file="headfoot/header-x.jsp" %>
+	</c:if>
+	<c:if test="${sessionScope.id != null}">
+		<%@ include file="headfoot/header.jsp" %>
+	</c:if>
 	<div class="main">
 		<div class="write">
             버려지는 야채를
@@ -113,6 +125,10 @@
 	<a href="${contextPath}/order/cart.form">cart</a>
 	<br>
 	<a href="${contextPath}/qna/list.form">qna list</a>
-		
+	
+		<!--  top btn -->
+	<div id="topBtn" onclick="clickMe()">
+		<div><i class="fa-solid fa-carrot fa-lg"></i></div><div>top</div>
+	</div>
 </body>
 </html>
