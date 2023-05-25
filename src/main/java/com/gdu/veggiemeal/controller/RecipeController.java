@@ -29,5 +29,5 @@ public class RecipeController {
 	public Map<String, Object> scroll(HttpServletRequest request){
 		return recipeService.selectRecipeList(request);
 	}
-	//
+	
 }
