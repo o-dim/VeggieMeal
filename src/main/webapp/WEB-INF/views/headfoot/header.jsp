@@ -43,7 +43,7 @@
         text-decoration: none;
         float: right;
         margin-right: 120px;
-        margin-top: 50px;
+        margin-top: 100px;
         font-size: 14px;
     }
 
@@ -68,6 +68,8 @@
     	height : 100px;
     	list-style : none;
     	text-align: center;
+        padding-top : 10px;
+    	
     }
     .gnb ul > li > a {
     	display: block;
@@ -97,7 +99,7 @@
     }
     
     .subMenu div:hover {
-    	color : #32CD32;
+    	color : #FACC57;
     }
     
     .subMenu a {

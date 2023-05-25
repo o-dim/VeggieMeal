@@ -20,7 +20,12 @@
         font-weight: normal;
         font-style: normal;
     }
-
+    a {
+    	color: black;
+    }
+	a:visited {
+		color : black;
+	}
     header {
         width: 100%;
         font-family: 'Open Sans', sans-serif;
@@ -45,7 +50,7 @@
     }
     .login, .regi {
         text-decoration: none;
-        margin-top: 50px;
+        margin-top: 100px;
         margin-left : 10px;
         font-size: 14px;
     }
@@ -71,6 +76,8 @@
     	height : 100px;
     	list-style : none;
     	text-align: center;
+    	padding-top : 10px;
+    	
     }
     .gnb ul > li > a {
     	display: block;
@@ -99,8 +106,8 @@
  		z-index: 1;
     }
     
-    .subMenu div:hover {
-    	color : #32CD32;
+    .subMenu a:hover {
+    	background-color : #FACC57;
     }
     
     .subMenu a {

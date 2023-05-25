@@ -3,12 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<c:if test="${sessionScope.id == null}">
-	<%@ include file="headfoot/header-x.jsp" %>
-</c:if>
-<c:if test="${sessionScope.id != null}">
-	<%@ include file="headfoot/header.jsp" %>
-</c:if>
+
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -81,13 +76,19 @@
    }
    .image2 {
         width: 100vw;
-        height: 270vh;
+        height: 280vh;
         background: url("${contextPath}/resources/images/2.png") scroll;
         background-size: 100% 100%;
    }
 
 </style>
 <body>
+<c:if test="${sessionScope.id == null}">
+	<%@ include file="headfoot/header-x.jsp" %>
+</c:if>
+<c:if test="${sessionScope.id != null}">
+	<%@ include file="headfoot/header.jsp" %>
+</c:if>
 	<div class="main">
 		<div class="write">
             버려지는 야채를
@@ -112,5 +113,8 @@
 	<a href="${contextPath}/order/cart.form">cart</a>
 	<br>
 	<a href="${contextPath}/qna/list.form">qna list</a>
+	
+	<%@ include file="headfoot/footer.jsp" %>
+	
 </body>
 </html>
