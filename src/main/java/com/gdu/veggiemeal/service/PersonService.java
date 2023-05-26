@@ -11,6 +11,7 @@ public interface PersonService {
 	
 	public void join(HttpServletRequest requesst, HttpServletResponse response);
 	public Map<String, Object> sendAuthCode(String email);
+	public void edit(HttpServletRequest request, HttpServletResponse response);
 	public void leave(HttpServletRequest request, HttpServletResponse response);
 	public void login(HttpServletRequest request, HttpServletResponse response);
 	public void logout(HttpServletRequest request, HttpServletResponse response);

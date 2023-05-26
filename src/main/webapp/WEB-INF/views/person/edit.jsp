@@ -145,7 +145,7 @@
 	<div>
 		<h1>회원정보수정</h1>
 	</div>
-		<form action="/updatePerson.do" method="post" id="update_frm">
+		<form action="/edit.do" method="post" id="update_frm">
 			<div class="centerplz">
 				<div>이름</div>
 				<input type="text" id="name" placeholder="이름은 변경이 불가능합니다." readonly="readonly">

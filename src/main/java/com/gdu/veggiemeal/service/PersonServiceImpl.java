@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -122,6 +123,37 @@ public class PersonServiceImpl implements PersonService {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}
+	}
+	
+	@Override
+	public void edit(HttpServletRequest request, HttpServletResponse response) {
+		String strPw = request.getParameter("pw");
+		String pw = securityUtil.getSha256(strPw);
+		String phoneNo = request.getParameter("phoneNo");
+		PersonDTO personDTO = new PersonDTO();
+		personDTO.setPw(pw);
+		personDTO.setPhoneno(phoneNo);
+		
+		int editResult = personMapper.insertPerson(personDTO);
+		
+		try {
+			response.setContentType("text/html; charset=UTF-8");
+	        response.setCharacterEncoding("UTF-8");
+			PrintWriter out = ((ServletResponse) response).getWriter();
+			out.println("<script>");
+			if(editResult == 1) {
+				out.println("alert('회원정보가 수정되었습니다')");
+				out.println("location.href = '" + request.getContextPath() + "/person/mypage.form';");
+			} else {
+				out.println("alert('회원정보 수정에 실패하였습니다...)");
+				out.println("location.href = '" + request.getContextPath() + "/person/mypage.form';");
+			}
+			out.println("</script>");
+			out.flush();
+			out.close();
+		}catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	

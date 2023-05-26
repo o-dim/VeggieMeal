@@ -76,6 +76,11 @@ public class PersonController {
 		return personService.sendAuthCode(email);
 	}
 	
+	@PostMapping("/edit.do")
+	public void edit(HttpServletRequest request, HttpServletResponse response) {
+		personService.edit(request, response);
+	}
+	
 	@GetMapping("/logout.do")
 	public String logout(HttpServletRequest request, HttpServletResponse response) {
 		personService.logout(request, response);
