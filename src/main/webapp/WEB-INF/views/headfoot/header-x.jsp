@@ -143,7 +143,7 @@
 		            <li class="dropdown">
 		                <div class="menu">RECIPE</div>
 		        		<div class="subMenu">
-		        			<div><a href="${contextPath}/menu2/recipe.form">레시피 목록</a></div>
+		        			<div><a href="${contextPath}/menu2/recipe.do">레시피 목록</a></div>
 		        		</div>
 		            </li>
 		            <li class="dropdown">

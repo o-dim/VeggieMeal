@@ -143,7 +143,7 @@
 	<br>
 	<a href="${contextPath}/menu1/wanted.form">wanted</a>
 	<br>
-	<a href="${contextPath}/menu2/recipe.form">recipe</a>
+	<a href="${contextPath}/menu2/recipe.do">recipe</a>
 	<br>
 	<a href="${contextPath}/order/cart.form">cart</a>
 	<br>

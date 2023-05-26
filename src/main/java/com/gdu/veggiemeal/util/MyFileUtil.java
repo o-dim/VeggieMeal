@@ -20,6 +20,11 @@ public class MyFileUtil {
 		return "/storage" + sep + now.getYear() + sep + String.format("%02d", now.getMonthValue()) + sep + String.format("%02d", now.getDayOfMonth());
 	}
 	
+	public String getRecipePath() {
+		
+		return "/storage" + sep + "recipe";
+	}
+	
 	// String filesystemName 만들기
 	public String getFilesystemName(String originName) {
 		
