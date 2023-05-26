@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -11,30 +10,20 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="${contextPath}/resources/js/lib/jquery-3.6.4.min.js"></script>
-</head>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script type="text/javascript">
 	function fnGo() {
-		location.href = "${contextPath}/menu1/wanted.do";
+		location.href = "${contextPath}/menu1/wanted.form";
 	}
-	function clickMe() {
-		window.scrollTo(0,0);
-	}
-</script>
+</script>	
+</head>
 <style>
-   	@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
-
     @font-face {
         font-family: 'Tenada';
         src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
         font-weight: normal;
         font-style: normal;
     }
-    @font-face {
-    font-family: 'HANAMDAUM';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/HANAMDAUM.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-	}
 	@font-face {
 	    font-family: 'OTWelcomeRA';
 	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
@@ -72,6 +61,9 @@
     	height: 40px;
     	display: block;
     }
+    .goBtn:hover {
+    	cursor: pointer;
+    }
    .image1 {
    		width : 100vw;
    		height : 60vw;
@@ -85,20 +77,14 @@
         background: url("${contextPath}/resources/images/2.png") scroll;
         background-size: 100% 100%;
    }
-   
-   	#topBtn{
-		top: 90%;
-		left: 90%;
-		position: fixed;
-		z-index: 1;
-	}
-
+	
+	
 </style>
 <body>
-	<c:if test="${sessionScope.id == null}">
+	<c:if test="${sessionScope.loginId == null}">
 		<%@ include file="headfoot/header-x.jsp" %>
 	</c:if>
-	<c:if test="${sessionScope.id != null}">
+	<c:if test="${sessionScope.loginId != null}">
 		<%@ include file="headfoot/header.jsp" %>
 	</c:if>
 	<div class="main">
@@ -120,15 +106,11 @@
 	<br>
 	<a href="${contextPath}/menu1/wanted.form">wanted</a>
 	<br>
-	<a href="${contextPath}/menu2/recipe.form">recipe</a>
+	<a href="${contextPath}/menu2/recipe.do">recipe</a>
 	<br>
 	<a href="${contextPath}/order/cart.form">cart</a>
 	<br>
 	<a href="${contextPath}/qna/list.form">qna list</a>
-	
-		<!--  top btn -->
-	<div id="topBtn" onclick="clickMe()">
-		<div><i class="fa-solid fa-carrot fa-lg"></i></div><div>top</div>
-	</div>
+	<%@ include file="headfoot/carrot.jsp" %>
 </body>
 </html>

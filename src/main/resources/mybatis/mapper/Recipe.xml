@@ -17,12 +17,58 @@
 		  		  FROM RECIPE) A
 		 WHERE A.RN BETWEEN #{begin} AND #{end}
 	</select>
+	
+	
 
-	<select id="selectRecipeByNo" parameterType="int" resultType="RecipeDTO">
+	<select id="getRecipeByNo" parameterType="int" resultType="RecipeDTO">
 		SELECT RECIPE_NO, ID, TITLE, TOOL, CONTENT1, CONTENT2, WRITE_AT, MODIFIED_AT, IMG_FILE_NAME
 		  FROM RECIPE
 		 WHERE RECIPE_NO = #{recipeNo}
 	</select> 
+	
+	<delete id="removeRecipe">
+		DELETE
+		  FROM RECIPE
+		 WHERE RECIPE_NO = #{recipeNo}
+	</delete>
+	
+	<update id="modifyRecipe" parameterType="RecipeDTO">
+		UPDATE RECIPE
+		   SET TITLE = #{title}
+		     , TOOL = #{tool}
+		     , CONTENT1 = #{content1}
+		     , CONTENT2 = #{content2}
+		 WHERE RECIPE_NO = #{recipeNo}
+	</update>
+	
+<!-- 	<insert id="addRecipe" parameterType="RecipeDTO">
+		<selectKey order="BEFORE" resultType="int" keyProperty="recipeNo">
+			SELECT RECIPE_SEQ.NEXTVAL
+			  FROM DUAL
+		</selectKey>
+		INSERT INTO RECIPE (
+			RECIPE_NO
+		  , ID
+		  , TITLE
+		  , TOOL
+		  , CONTENT1
+		  , CONTENT2
+		  , WRITE_AT
+		  , MODIFIED_AT
+		  , IMG_FILE_NAME
+		) VALUES (
+			#{recipeNo}
+		  , #{id}
+		  , #{recipeTitle}
+		  , #{tool}
+		  , #{recipeContent1}
+		  , #{recipeContent2}
+		  , SYSTIMESTAMP
+		  , SYSTIMESTAMP
+		  , #imgFileName
+		)
+	</insert> -->
+	
 
 	
 

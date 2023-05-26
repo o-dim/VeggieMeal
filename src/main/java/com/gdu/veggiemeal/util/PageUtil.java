@@ -69,7 +69,7 @@ public class PageUtil {
 		if(path.contains("?")) {
 			path += "&";
 		} else {
-			path += "?"; //
+			path += "?"; 
 		}
 		
 		StringBuilder sb = new StringBuilder();

@@ -28,6 +28,7 @@
 			<mapping path="/person/logout.do"/>
 			<mapping path="/person/mypage.form"/>
 			<mapping path="/person/edit.form"/>
+			<mapping path="/qna/qnaWrite.form"/>
 			<beans:bean class="com.gdu.veggiemeal.interceptor.LoginInterceptor"></beans:bean>
 		</interceptor>
 		<interceptor>
