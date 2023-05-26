@@ -14,6 +14,7 @@ DROP TABLE PRODUCT;
 DROP TABLE RECIPE;
 DROP TABLE PERSON;
 
+
 DROP SEQUENCE PROD_SEQ;
 CREATE SEQUENCE PROD_SEQ NOCACHE;
 DROP SEQUENCE SALE_SEQ;
@@ -60,7 +61,7 @@ CREATE TABLE PRODUCT (
 -- 상품판매 (판매 원티드 페이지)
 CREATE TABLE SALE (
    SALE_NO                       NUMBER               NOT NULL, 
-   PROD_CODE                     NUMBER               NOT NULL, -- 제품코드
+   PROD_CODE                       NUMBER               NOT NULL, -- 제품코드
    SALE_TITLE                    VARCHAR2(100 BYTE)       NULL, -- 제품이름
    SALE_CONTENT                  VARCHAR2(100 BYTE)       NULL, 
    SALE_PRICE                    NUMBER                   NULL  -- 제품가격
@@ -77,23 +78,23 @@ CREATE TABLE PIMG (
 
 -- 회원(탈퇴,휴면)
 CREATE TABLE PERSON (
-   PER_NO                       NUMBER               NOT NULL,
-   ID                           VARCHAR2(20 BYTE)   NOT NULL UNIQUE,
+   PER_NO                         NUMBER               NOT NULL,
    PW                           VARCHAR2(100 BYTE)   NOT NULL,
-   PHONENO                      CLOB                 NOT NULL,
-   POST_CODE                    VARCHAR2(5 BYTE)         NULL,
-   ROAD_ADDRESS                 VARCHAR2(100 BYTE)       NULL,
-   JIBUN_ADDRESS                VARCHAR2(100 BYTE)       NULL,
+   PHONENO                      CLOB                   NOT NULL,
+   POST_CODE                     VARCHAR2(5 BYTE)           NULL,
+   ROAD_ADDRESS                  VARCHAR2(100 BYTE)       NULL,
+   JIBUN_ADDRESS                  VARCHAR2(100 BYTE)       NULL,
    DETAIL_ADDRESS               VARCHAR2(100 BYTE)       NULL,
-   EMAIL                        VARCHAR2(20 BYTE)    NOT NULL,
+   EMAIL                          VARCHAR2(20 BYTE)    NOT NULL,
    GENDER                       VARCHAR2(10 BYTE)        NULL,
-   NAME                         VARCHAR2(20 BYTE)        NULL,
-   JOINED_AT                    DATE                     NULL
+   NAME                          VARCHAR2(20 BYTE)        NULL,
+   JOINED_AT                      DATE                       NULL,
+   ID                           VARCHAR2(20 BYTE)    NOT NULL UNIQUE
 );
 
 -- 장바구니 : 장바구니번호, 장바구니에담은개수, 사용자번호(정보), 판매번호(판매정보,제품코드)
 CREATE TABLE CART_DETAIL (
-    CART_DETAIL_NO             NUMBER               NOT NULL,          -- PK
+    CART_DETAIL_NO             NUMBER               NOT NULL, --PK
     COUNT                      NUMBER               NOT NULL,
     SALE_NO                    NUMBER               NOT NULL,
     CART_NO                    NUMBER               NOT NULL
@@ -125,7 +126,7 @@ CREATE TABLE FAST_ORDER_DETAIL (
 
 -- 레시피 추천 : 사용자(FK), 레시피 번호(FK)
 CREATE TABLE RECOMMAND (
-   RECOMMAND_NO                NUMBER               NOT NULL,
+   RECOMMAND_NO                NUMBER                 NOT NULL,
    PER_NO                      NUMBER               NOT NULL,
    RECIPE_NO                   NUMBER               NOT NULL
 );
@@ -321,11 +322,7 @@ ALTER TABLE CART_DETAIL
 
 INSERT INTO PERSON VALUES (
     PERSON_SEQ.NEXTVAL,
-<<<<<<< HEAD
-    'A29974B03834 84DECD9E7AF13EEA928746C 58BEBB9B0BF 456A5616227FEFE',
-=======
     'B28FFB70BEAABE4EE42FBD 5579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
->>>>>>> 697fc606a66655c434af4f3758ea3b4ae074e78c
     '01011111113',
     '11111',
     '망고광역시',
@@ -526,7 +523,7 @@ INSERT INTO PERSON VALUES (PERSON_SEQ.NEXTVAL, 'B28FFB70BEAABE4EE42FBD 5579E60A2
  INSERT INTO PRODUCT VALUES (PROD_SEQ.NEXTVAL, '여주',       '/storage\\product', 'V_24.PNG', 15000, 20); 
  COMMIT;
  
- INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 1, '싸움고수', '고수 중의 고수입니다. 검거하는 동안 몸부림이 장난 아니었습니다.', 14000);
+INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 1, '싸움고수', '고수 중의 고수입니다. 검거하는 동안 몸부림이 장난 아니었습니다.', 14000);
  INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 2, '깻잎', '남해에서 포획한 깻잎을 야무지게 입으로 검거해주세요.', 12000);
  INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 3, '땅땅콩콩', '제주도에서 잡아온 땅콩입니다. 역시 작은 땅콩이 더 고소합니다.', 17000);
  INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 4, '양배추', '양구의 자랑 양배추입니다.', 14000);
@@ -590,7 +587,7 @@ INSERT INTO CART_DETAIL VALUES(CART_DETAIL_SEQ.NEXTVAL, 10, 7, 7);
 INSERT INTO CART_DETAIL VALUES(CART_DETAIL_SEQ.NEXTVAL, 10, 8, 8);
 INSERT INTO CART_DETAIL VALUES(CART_DETAIL_SEQ.NEXTVAL, 10, 9, 9);
 INSERT INTO CART_DETAIL VALUES(CART_DETAIL_SEQ.NEXTVAL, 10, 10, 10);
-<<<<<<< HEAD
+
 COMMIT;
 
 INSERT INTO QNA VALUES(QNA_SEQ.NEXTVAL, '감자가 갈색', '감자가 갈색이라니 정상인가요?', TO_DATE('20210520', 'YYYYMMDD'), 'DrPotato1');
@@ -600,6 +597,3 @@ INSERT INTO QNA VALUES(QNA_SEQ.NEXTVAL, '당근런', '당근이 도망갔어요 
 INSERT INTO QNA VALUES(QNA_SEQ.NEXTVAL, '애호박은 우리애', '애가 참 좋아하네요 ', TO_DATE('20210619', 'YYYYMMDD'), 'child');
 INSERT INTO QNA VALUES(QNA_SEQ.NEXTVAL, '양상추가 상했어요', '상하면 맛있어', TO_DATE('20210620', 'YYYYMMDD'), 'sangham');
 COMMIT;
-=======
-COMMIT;
->>>>>>> 54efdaae6153e6f249cb3c95a18ec882303e4cfd

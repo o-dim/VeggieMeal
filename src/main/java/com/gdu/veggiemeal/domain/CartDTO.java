@@ -1,5 +1,7 @@
 package com.gdu.veggiemeal.domain;
 
+import java.sql.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,7 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor 
 @AllArgsConstructor
-public class CartTblDTO {
+public class CartDTO {
 	private int cartNo;
-	private int count;
+	private Date createdAt;
+	private PersonDTO personDTO;
 }

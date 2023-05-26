@@ -19,7 +19,7 @@
   		  <typeAlias alias="QnaAnswerDTO" type="com.gdu.veggiemeal.domain.QnaAnswerDTO" />
   		  <typeAlias alias="RecommandDTO" type="com.gdu.veggiemeal.domain.RecommandDTO" />
   		  <typeAlias alias="CartDetailDTO" type="com.gdu.veggiemeal.domain.CartDetailDTO" />
-  		  <typeAlias alias="CartTblDTO" type="com.gdu.veggiemeal.domain.CartTblDTO" />
+  		  <typeAlias alias="CartDTO" type="com.gdu.veggiemeal.domain.CartDTO" />
   		  <typeAlias alias="PImgDTO" type="com.gdu.veggiemeal.domain.PImgDTO" />
   		  <typeAlias alias="SaleDTO" type="com.gdu.veggiemeal.domain.SaleDTO" />
   		  <typeAlias alias="PersonDTO" type="com.gdu.veggiemeal.domain.PersonDTO" />

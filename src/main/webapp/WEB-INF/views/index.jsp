@@ -97,20 +97,6 @@
     <div class="image1"></div>
     <div class="image2"></div>
 	
-	<br>
-	<a href="${contextPath}/admin/adminPage.form">admin</a>
-	<br>
-	<a href="${contextPath}/person/login.form">login</a>
-	<br>
-	<a href="${contextPath}/person/mypage.form">my page</a>
-	<br>
-	<a href="${contextPath}/menu1/wanted.form">wanted</a>
-	<br>
-	<a href="${contextPath}/menu2/recipe.do">recipe</a>
-	<br>
-	<a href="${contextPath}/order/cart.form">cart</a>
-	<br>
-	<a href="${contextPath}/qna/list.form">qna list</a>
 	<%@ include file="headfoot/carrot.jsp" %>
 </body>
 </html>

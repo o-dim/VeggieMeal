@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace는 @Mapper를 지정한다. -->
+<mapper namespace="com.gdu.veggiemeal.mapper.CartMapper">
+
+	<!-- JOIN 결과를 저장할 resultMap 만들기 -->
+	<resultMap type="CartDetailDTO" id="CartDetailMap">
+		<id column="CART_DETAIL_NO" property="cartDetailNo"/>
+		<result column="COUNT" property="count"/>
+		<association javaType="SaleDTO" property="saleDTO">
+			<id column="SALE_NO" property="saleNo" /> 
+			<result column="SALE_TITLE" property="saleTitle" />
+			<result column="SALE_CONTENT" property="saleContent" />
+			<result column="SALE_PRICE" property="salePrice" />
+			<association javaType="ProductDTO" property="productDTO">
+				<id column="PROD_CODE" property="prodCode" />
+				<result column="PROD_NAME" property="prodName" />
+				<result column="PROD_PATH" property="prodPath" />
+				<result column="PROD_IMG_NAME" property="prodImgName" />
+				<result column="PROD_ORIGIN_PRICE" property="prodOriginPrice" />
+				<result column="PROD_STOCK" property="prodStock" />
+			</association>
+		</association>
+		<association javaType="CartDTO" property="cartDTO">
+			<id column="CART_NO" property="cartNo" />
+			<result column="CREATED_AT" property="createdAt" />
+			<association javaType="PersonDTO" property="personDTO">
+				<id column="PER_NO" property="perNo" />
+				<result column="ID" property="id" />
+				<result column="PW" property="pw" />
+				<result column="NAME" property="name" />
+				<result column="PHONENO" property="phoneno" />
+				<result column="POST_CODE" property="postCode" />			
+				<result column="ROAD_ADDRESS" property="roadAddress" />			
+				<result column="JIBUN_ADDRESS" property="jibunAddress" />			
+				<result column="DETAIL_ADDRESS" property="detailAddress" />			
+				<result column="EMAIL" property="email" />			
+				<result column="GENDER" property="gender" />					
+				<result column="JOINED_AT" property="joinedAt" />			
+			</association>
+		</association>
+	</resultMap>
+	
+	<select id="selectCartDetailList" parameterType="String" resultMap="CartDetailMap"> 
+     SELECT CD.CART_DETAIL_NO, CD.COUNT, S.SALE_NO, S.SALE_TITLE, S.SALE_CONTENT, S.SALE_PRICE, P.PROD_CODE, P.PROD_NAME, P.PROD_PATH, P.PROD_IMG_NAME, P.PROD_ORIGIN_PRICE, P.PROD_STOCK, C.CART_NO, C.CREATED_AT, PE.PER_NO, PE.ID, PE.PW, PE.NAME, PE.PHONENO, PE.POST_CODE, PE.ROAD_ADDRESS, PE.JIBUN_ADDRESS, PE.DETAIL_ADDRESS, PE.EMAIL, PE.GENDER, PE.JOINED_AT
+	  FROM CART_DETAIL CD INNER JOIN SALE S
+	    ON CD.SALE_NO = S.SALE_NO INNER JOIN PRODUCT P
+	    ON S.PROD_CODE = P.PROD_CODE INNER JOIN CART C
+	    ON CD.CART_NO = C.CART_NO INNER JOIN PERSON PE 
+	    ON C.PER_NO = PE.PER_NO
+	 WHERE PE.ID = #{id}
+	</select>
+	
+	
+
+	<insert id="addCart" parameterType="CartDetailDTO">	<!-- 카트 추가 -->
+		INSERT INTO CART_DETAIL
+		  (CART_DETAIL_NO, COUNT)
+		 VALUES
+		  (CART_DETAIL_SEQ.NEXTVAL, #{cartDetailNo}, #{count})
+			
+	</insert>
+	
+	
+	<update id="modifyCart" parameterType="CartDetailDTO"> <!--카트 수량 수정  -->
+		UPDATE CART_DETAIL
+		  SET CART_NO = #{cartNo}
+		  	, COUNT = #{count} 
+		  	, SALE_PRICE = #{salePrice}
+		  	, PROD_NAME = #{prodName}
+		 WHERE PER_NO = #{perNo}
+	</update>
+	
+	<delete id="deleteCart" parameterType="int">	<!-- 카트 삭제 -->
+		DELETE 
+		  FROM CART_DETAIL
+		 WHERE CART_NO = #{cartNo}
+		 
+	</delete>
+	
+	<delete id="deleteCartList" parameterType="List">
+		DELETE
+		  FROM CART_DETAIL
+	</delete>
+	
+	<!-- 카트에 담은 개수 조회 -->
+	
+	<select id="selectCartCount" resultType="int">
+		SELECT COUNT(*)
+		  FROM CART
+	</select>
+	
+	<select id="selectCartDetailByNo" parameterType="int" resultMap="CartDetailMap">
+		SELECT CD.CART_DETAIL_NO, CD.COUNT, S.SALE_NO, S.SALE_TITLE, S.SALE_CONTENT, S.SALE_PRICE, P.PROD_CODE, P.PROD_NAME, P.PROD_PATH, P.PROD_IMG_NAME, P.PROD_ORIGIN_PRICE, P.PROD_STOCK, C.CART_NO, C.CREATED_AT, PE.PER_NO, PE.ID, PE.PW, PE.NAME, PE.PHONENO, PE.POST_CODE, PE.ROAD_ADDRESS, PE.JIBUN_ADDRESS, PE.DETAIL_ADDRESS, PE.EMAIL, PE.GENDER, PE.JOINED_AT
+		  FROM CART_DETAIL CD INNER JOIN SALE S
+		    ON CD.SALE_NO = S.SALE_NO INNER JOIN PRODUCT P
+		    ON S.PROD_CODE = P.PROD_CODE INNER JOIN CART C
+		    ON CD.CART_NO = C.CART_NO INNER JOIN PERSON PE 
+		    ON C.PER_NO = PE.PER_NO
+		 WHERE CD.CART_DETAIL_NO = #{cartDetailNo}
+	</select>
+
+</mapper>
