@@ -135,7 +135,12 @@ p {
 </head>
 <body>
 
-	<%@ include file="../headfoot/header.jsp"%>
+	<c:if test="${sessionScope.loginId == null}">
+		<%@ include file="../headfoot/header-x.jsp" %>
+	</c:if>
+	<c:if test="${sessionScope.loginId != null}">
+		<%@ include file="../headfoot/header.jsp" %>
+	</c:if>
 	<div class="pictures">
 		<h2>인기 레시피&gt;</h2>
 		<div class="recipe">
