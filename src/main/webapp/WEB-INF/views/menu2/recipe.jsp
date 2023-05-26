@@ -192,5 +192,7 @@ p {
 		<div>${pagination}</div>
 	</div>
 
+
+<%@ include file="../headfoot/carrot.jsp" %>
 </body>
 </html>
