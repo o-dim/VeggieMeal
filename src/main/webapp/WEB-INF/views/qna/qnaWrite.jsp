@@ -44,35 +44,40 @@
 </head>
 
 <body>
-<%@ include file="../headfoot/header.jsp" %>
+	<c:if test="${sessionScope.loginId == null}">
+		<%@ include file="../headfoot/header-x.jsp" %>
+	</c:if>
+	<c:if test="${sessionScope.loginId != null}">
+		<%@ include file="../headfoot/header.jsp" %>
+	</c:if>
 
-<h2>질문하기</h2>
-	<form id="frmwrite" method="post" action="${contextPath}/qna/qnaWrite.do">
-		<div>
-			<label for="title">제목</label>
-			<input type="text" id="title" name="title" required="required" onclick="fntitle()">
-		</div>
-		
-		<div>
-			작성자 ${sessionScope.loginId}
-			<input type="hidden" name="id" value="${sessionScope.loginId}">
-		</div>
-		<div>
-			<label for="content">내용</label>
-			<textarea id="content" name="content" rows="50" cols="30" required="required"></textarea>
-		</div>
-		<div>
-		<c:if test="${sessionScope.loginId == null}">
-		 
-		</c:if>
-		<c:if test="${sessionScope.loginId != null}">
-			<input type="submit" name="signUp" value="질문하기" onclick="fnsignUp()">
-		</c:if>
+	<h2>질문하기</h2>
+		<form id="frmwrite" method="post" action="${contextPath}/qna/qnaWrite.do">
+			<div>
+				<label for="title">제목</label>
+				<input type="text" id="title" name="title" required="required" onclick="fntitle()">
+			</div>
 			
-		</div>
-		<div>
-			<input type="button" name="back" value="돌아가기" onclick="fnback()">
-		</div>
+			<div>
+				작성자 ${sessionScope.loginId}
+				<input type="hidden" name="id" value="${sessionScope.loginId}">
+			</div>
+			<div>
+				<label for="content">내용</label>
+				<textarea id="content" name="content" rows="50" cols="30" required="required"></textarea>
+			</div>
+			<div>
+			<c:if test="${sessionScope.loginId == null}">
+			 
+			</c:if>
+			<c:if test="${sessionScope.loginId != null}">
+				<input type="submit" name="signUp" value="질문하기" onclick="fnsignUp()">
+			</c:if>
+				
+			</div>
+			<div>
+				<input type="button" name="back" value="돌아가기" onclick="fnback()">
+			</div>
 		</form>
 	
 	

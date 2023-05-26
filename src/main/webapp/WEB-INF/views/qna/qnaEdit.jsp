@@ -20,17 +20,6 @@
 	}
 	
 	
-	function fnRemove(){
-		if(confirm('삭제할까요?')){
-			$('#frm_remove').submit();
-		}
-	}
-	
-	function fnList(){
-		location.href = '${contextPath}/qna/list.do';
-	}
-	
-	
 	$(function(){
 		$('#content').summernote({
 			width: 640,
@@ -55,31 +44,38 @@
 </head>
 
 <body>
-<%@ include file="../headfoot/header.jsp" %>
+<c:if test="${sessionScope.loginId == null}">
+		<%@ include file="../headfoot/header-x.jsp" %>
+	</c:if>
+	<c:if test="${sessionScope.loginId != null}">
+		<%@ include file="../headfoot/header.jsp" %>
+	</c:if>
 	
-	
+	<div>
 		<h1>의뢰 번복하기</h1>
-		<form method="post" action="${contextPath}/qna/list.do">
+	<h2>질문하기</h2>
+		<form id="frmedit" method="post" action="${contextPath}/qna/qnaEdit.form">
 			<div>
-				<label for="title">제목</label>
-				<input type="text" id="title" name="title" value="${qnaDTO.title}">
+				<label for="editTitle">제목</label>
+				<input type="text" id="editTitle" name="editTitle" value="${edit.title}">
+			</div>
+			
+			<div>
+				작성자 ${sessionScope.loginId}
+				<input type="hidden" name="id" value="${sessionScope.loginId}">
 			</div>
 			<div>
-				<label for="wirter">작성자</label>
-				<input type="text" id="writer" name="writer" value="${qnaDTO.personDTO.id}" readonly="readonly">
+				<label for="content">내용</label>
+				<textarea id="content" name="content" rows="50" cols="30">${edit.content}</textarea>
 			</div>
 			<div>
-				<div><label for="content">내용</label></div>
-				<textarea id="content" name="content">${qnaDTO.content}</textarea>  <!-- summernote 편집기로 바뀌는 textarea -->
+				<input type="submit" name="request" value="의뢰하기" onclick="fnrequest()">	
 			</div>
 			<div>
-				<input type="hidden" name="qnaNo" value="${qnaDTO.qnaNo}">
-				<button>수정완료</button>
-				<input type="button" value="목록" onclick="fnList()">
+				<input type="button" name="back" value="돌아가기" onclick="fnback()">
 			</div>
 		</form>
-	
-	
+	</div>
 	
 	
 	

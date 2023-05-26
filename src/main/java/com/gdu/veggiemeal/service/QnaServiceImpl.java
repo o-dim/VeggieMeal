@@ -84,7 +84,7 @@ public class QnaServiceImpl implements QnaService {
 	@Override
 	public void getQnaByNo(int qnaNo, Model model) {
 		model.addAttribute("qnaDTO", qnaMapper.getQnaByNo(qnaNo));
-		
+	//	model.addAttribute("qnaDTO", qnaMapper.addQnaList());
 	}
 	
 	@Override

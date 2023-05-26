@@ -56,9 +56,9 @@ public class QnaController {
 	}
 	
 	
-	//@GetMapping("/qnaEdit.form")
-	public String editQna(@RequestParam(value = "qnaNo", required = false, defaultValue = "0") int qnaNo, Model model) {
-		qnaService.getQnaByNo(qnaNo, model);
+	@PostMapping("/qnaEdit.form")
+	public String editQna(@RequestParam(value = "qnaNo", required = false) String qnaNo, Model model) {
+		qnaService.getQnaByNo(Integer.parseInt(qnaNo), model);
 		return "qna/list";
 	}
 	
