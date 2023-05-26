@@ -16,9 +16,79 @@ function fnWrite() {
 	}
 	
 </script>
-
 </head>
-
+<style>
+	.box {
+		width: 1000px;
+		left : calc(50% - 1000px/2);
+		background-position: center;
+		background: #F4F4F4;
+		border-radius: 59px;
+		position: absolute;
+		padding-bottom: 100px;
+	}
+	.title {
+		text-align: center;
+		margin-top : 50px;
+		margin-bottom : 50px;
+	}
+	table {
+	   width: 100%;
+	   border-collapse: collapse;
+	   bottom: 300px;
+  	}
+  	th, td {
+	    border: 1px solid #444444;
+	    padding: 10px;
+  	}
+  	.thead {
+  		font-style: oblique;
+  	}
+  	table th:first-child,
+	table td:first-child {
+		border-left: 0;
+	}
+	table th:last-child,
+	table td:last-child {
+		border-right: 0;
+	}
+  	
+	.tbl {
+		margin-left: auto;
+		margin-right: auto;
+		width : 800px;
+	}
+	.btnwrap {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.qBtn {
+		width : 800px;
+		height: 30px;
+		background-color: transparent;
+		border: 1px solid black;
+		animation: motion 0.3s linear 0s infinite alternate;
+		margin : 50px 0 5px 100px;
+	}
+	a {
+		text-decoration: none;
+		color: black;
+	}
+	a:visited {
+		color: black;
+	}
+	.thead {
+		margin-top : 5px;
+		margin-bottom: 5px;
+		text-align : center;
+		
+	}
+        
+	@keyframes motion {
+		0% {margin-top: 0px;}
+		100% {margin-top: 10px;}
+	}	
+</style>
 <body>
 	<c:if test="${sessionScope.loginId == null}">
 		<%@ include file="../headfoot/header-x.jsp" %>
@@ -26,17 +96,14 @@ function fnWrite() {
 	<c:if test="${sessionScope.loginId != null}">
 		<%@ include file="../headfoot/header.jsp" %>
 	</c:if>
-	<div>
-		<h2>자주하는 질문</h2>
-	</div>
-	<div>
-		<input type="button" id="write" value="질문하기" onclick="fnWrite()">
-	</div>
-	<div>
+	<div class="box">
+		<div class="title">
+			<h2>자주하는 질문</h2>
+		</div>
 		<form id="frmList">
-		<table border="1">
+		<table border="1" class="tbl">
 			<thead>
-				<tr>	
+				<tr class="thead">	
 					<td>글 번호</td>
 					<td>제목</td>
 					<td>내용</td>
@@ -66,10 +133,12 @@ function fnWrite() {
 			
 		
 		</form>
-		
-		
-	</div>
-		
+		<div class="btnwrap">
+			<input type="button" id="write" value="질문하기" onclick="fnWrite()" class="qBtn">
+		</div>
+			
+
+	</div>	
 	
 	
 	
