@@ -73,25 +73,32 @@
 			let windowHeight = $(this).height();
 			let documentHeight = $(document).height();
 			if((scrollTop + windowHeight + 50) >= documentHeight) {
-				if(page <= totalPage) {
-					// 최종 로딩 숨기기 
-					fnGetSales();
+				if(page > totalPage) {
+					// 최종 로딩 숨기기
+					$('.loading_wrap').addClass('blind');
+					return;
 				}
+					fnGetSales();
 			}
 		}, 200); 
 	})
+
+	
 </script>
 <style>
-
 	body {
 	
 	padding-top: 100px;
 	margin-left: 70px;
+    text-decoration: none;
 	
 	}
 	div {
 		box-sizing: border-box; 
 		
+	}
+	a {
+	  text-decoration: none !important;
 	}
 
 	.sales {
@@ -127,8 +134,9 @@
 		background-size: 300px 300px;
 		background-repeat: no-repeat;
 	}
-	.blind2 { /* 반드시 .loading_wrap 이후에 작성 */
-		display: none;
+	.blind {  /* 반드시 .loading_wrap 이후에 작성 */
+		/* display: none; */
+		visibility: hidden;
 	}
 </style>
 </head>
@@ -144,6 +152,7 @@
 <a href="${contextPath}/menu1/payment.do">결제수단</a>
 
 
+
 <h2 align="center">WANTED</h2>
 
 	<!-- 판매목록 보여주는 곳 -->
@@ -153,6 +162,7 @@
 	<div class="loading_wrap">
 		<div class="loading"></div>
 	</div>
-		
+	
+<%@ include file="../headfoot/carrot.jsp" %>
 </body>
 </html>

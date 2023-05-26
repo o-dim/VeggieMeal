@@ -1,13 +1,14 @@
 package com.gdu.veggiemeal.service;
 
 
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
-
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -32,7 +33,7 @@ public class QnaServiceImpl implements QnaService {
 		Optional<String> opt = Optional.ofNullable(request.getParameter("page"));
 		int page = Integer.parseInt(opt.orElse("1"));
 		int qnaCount = qnaMapper.getQnaCount();
-		int recordPerPage = 10;
+		int recordPerPage = 5;
 		pageUtil.setPageUtil(page, qnaCount, recordPerPage);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("begin", pageUtil.getBegin());
@@ -48,20 +49,72 @@ public class QnaServiceImpl implements QnaService {
 	}
 	
 	@Override
-	public int addQnaList(HttpServletRequest request) {
+	public int addQnaList(HttpServletRequest request, HttpServletResponse response) {
 		String title = request.getParameter("title");
+		String content = request.getParameter("content");
 		String id = request.getParameter("id");
+		QnaDTO qnaDTO = new QnaDTO();
+	    qnaDTO.setTitle(title);
+	    qnaDTO.setContent(content);
+	    PersonDTO personDTO = new PersonDTO();
+	    personDTO.setId(id);
+	    qnaDTO.setPersonDTO(personDTO);
+	    int writeResult = qnaMapper.addQnaList(qnaDTO);
+	    try {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			
+			out.println("<script>");
+			if (writeResult == 1) {
+				out.println("alert('게시글이 등록되었습니다.')");
+				out.println("location.href='" + request.getContextPath() + "/qna/list.form'");
+			} else {
+				out.println("alert('게시글이 등록되지 않았습니다.')");
+				out.println("history.back()");
+			}
+			out.println("</script>");
+			out.flush();
+			out.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	    return writeResult;
+	}
+	
+	@Override
+	public void getQnaByNo(int qnaNo, Model model) {
+		model.addAttribute("qnaDTO", qnaMapper.getQnaByNo(qnaNo));
+		
+	}
+	
+	@Override
+	public int editQnaList(HttpServletRequest request, HttpServletResponse response) {
+		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		QnaDTO qnaDTO = new QnaDTO();
 	    qnaDTO.setTitle(title);
 	    qnaDTO.setContent(content);
-	    
-	    PersonDTO personDTO = new PersonDTO();
-	    personDTO.setId(id);
-	    qnaDTO.setPersonDTO(personDTO);
-	    
-	    int writeResult = qnaMapper.addQnaList(qnaDTO);
-	    
-	    return writeResult;
+	    int EditResult = qnaMapper.addQnaList(qnaDTO);
+	    try {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			
+			out.println("<script>");
+			if (EditResult == 1) {
+				out.println("alert('민원 확인!')");
+				out.println("location.href='" + request.getContextPath() + "/qna/list.form'");
+			} else {
+				out.println("alert('민원 실패 ! 더 노력해주세요')");
+				out.println("history.back()");
+			}
+			out.println("</script>");
+			out.flush();
+			out.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	    return EditResult;
 	}
-}
+	}
+	
+

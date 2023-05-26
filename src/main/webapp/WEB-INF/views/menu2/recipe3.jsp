@@ -10,6 +10,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="${contextPath}/resources/js/lib/jquery-3.6.4.min.js"></script>
+<script>
+	function fnList(){
+		location.href='${contextPath}/menu2/recipe.form';
+	}
+</script>
 <style>
    @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css");
    
@@ -20,37 +25,6 @@
     font-weight: normal;
     font-style: normal;
 	}
-   
-    header {
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		height: 50px;
-		padding: 1rem;
-		color: black;
-		background: white;
-		display: flex;
-		font-size : 32px;
-		justify-content: space-between;
-		align-items: center;
-		border-bottom: 20px solid #facc57;
-		margin-bottom: 30px;
-   }
-   
-   header > div {
-      float:left;
-      vertical-align: top;
-      font-family: 'Tenada';
-   }
-   
-	.logo {
-      margin-bottom: -10px;
-   }
-   
-   .logo_img {
-      margin-right: 730px;
-   }
    
    button {
       margin-left: 10px;
@@ -79,6 +53,7 @@
    
 	.write > h1 {
 		font-size: 70px;
+		text-align:center;
 	}
 	
 	.write_1 {
@@ -120,11 +95,18 @@
 	}
 	
 	.btn_1 {
-		text-align:left;
-		margin-left:65px;
+		text-align:right;
+ 		margin-right:70px;
 		margin-top: 200px;
 	}
 	
+	.img {
+		text-align: right;
+	}
+	
+	#fileList {
+		margin-right: 70px;
+	}
 	
 
    
@@ -133,21 +115,7 @@
 <body>
 <header>
 
-	<div class="logo">야채단속반</div>
-	<div class="logo_img">
-		<img src="${contextPath}/resources/images/logo.png" width="250px">   
-	</div>
-
-	<div>
-		<form method="post">
-			<button>메뉴</button>
-			<button>메뉴2</button>
-			<button>메뉴3</button>
-			<button>로그인</button>
-			<button>회원가입</button>
-		</form>
-	</div>
-
+	<%@ include file="../headfoot/header.jsp"%>
 </header>
 
 		<div class="recipe">
@@ -159,7 +127,7 @@
 	
 	
 	<div class="write_1">
-		<form method="post" enctype="multipart/form-data" action="${contextPath}/">
+		<form method="post" enctype="multipart/form-data" action="${contextPath}/menu2/addRecipe.do">
 			<div class="title">
 				<span>제목</span>
 				<input type="text" id="uploadTitle" name="uploadTitle">

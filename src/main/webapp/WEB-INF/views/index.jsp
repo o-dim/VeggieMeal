@@ -10,12 +10,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="${contextPath}/resources/js/lib/jquery-3.6.4.min.js"></script>
-<!-- swiper 외부 라이브러리 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script type="text/javascript">
 	function fnGo() {
-		location.href = "${contextPath}/menu1/wanted.do";
+		location.href = "${contextPath}/menu1/wanted.form";
 	}
 </script>	
 </head>
@@ -26,12 +24,6 @@
         font-weight: normal;
         font-style: normal;
     }
-    @font-face {
-    font-family: 'HANAMDAUM';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/HANAMDAUM.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-	}
 	@font-face {
 	    font-family: 'OTWelcomeRA';
 	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
@@ -69,6 +61,9 @@
     	height: 40px;
     	display: block;
     }
+    .goBtn:hover {
+    	cursor: pointer;
+    }
    .image1 {
    		width : 100vw;
    		height : 60vw;
@@ -82,22 +77,7 @@
         background: url("${contextPath}/resources/images/2.png") scroll;
         background-size: 100% 100%;
    }
-
-	.swiper {
-		width: 60%;
-		height: 300px;
-		position: relative;
-	}
-	.swiper .swiper-slide {
-		width : 30%;
-		height : 300px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-	.swiper .swiper-slide > img {
-		width : 210px;
-	}
+	
 	
 </style>
 <body>
@@ -126,34 +106,11 @@
 	<br>
 	<a href="${contextPath}/menu1/wanted.form">wanted</a>
 	<br>
-	<a href="${contextPath}/menu2/recipe.form">recipe</a>
+	<a href="${contextPath}/menu2/recipe.do">recipe</a>
 	<br>
 	<a href="${contextPath}/order/cart.form">cart</a>
 	<br>
 	<a href="${contextPath}/qna/list.form">qna list</a>
-	<!-- Slider main container -->
-	<div class="swiper">
-	  <!-- Additional required wrapper -->
-		<div class="swiper-wrapper">
-			  <!-- Slides -->
-			<c:forEach items="${recipeList}" var="r">
-	  		<div class="swiper-slide"><img src="${contextPath}/resources/images/${r.imgfileName}"></div>
-	  		</c:forEach>
-		</div>
-	</div>
-	<script>
-	var swiper = new Swiper(".swiper", {
-		  effect: "coverflow",
-		  grabCursor: true,
-		  centeredSlides: true,
-		  slidesPerView: "auto",
-		  loop: true,
-		  spaceBetween: 32,
-		  coverflowEffect: {
-		    rotate: 0
-		  }
-		});
-	</script>
 	<%@ include file="headfoot/carrot.jsp" %>
 </body>
 </html>
