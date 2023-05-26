@@ -157,7 +157,7 @@ CREATE TABLE LEAVE_PERSON (
    LEAVE_AT                    DATE                    NULL
 );
 
--- 휴먼 계정
+-- 휴면 계정
 CREATE TABLE SLEEP_PERSON (
    SLEEP_PER_NO                   NUMBER              NOT NULL,
    ID                           VARCHAR2(20 BYTE)   NOT NULL UNIQUE,
@@ -552,18 +552,29 @@ INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 1, '싸움고수', '고수 중의 고
  INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 27, '여주', '당뇨에 좋은 여주입니다.', 20000);
 COMMIT;
 
-INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'mango', '암것도안대z', '너무너무많이들어가', '끝나고', '뭐먹지', SYSDATE, SYSDATE, 'r_11.png');
-INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'grape', '암것도안대zz', '너무너무많이들어가', '끝나고', '뭐먹지', SYSDATE, SYSDATE, 'r_12.png');
-INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'avocado', '암것도안대as', '너무너무많이들어가', '끝나고', '뭐먹지', SYSDATE, SYSDATE, 'r_16.png');
-INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'avocado1', '암것도안대zxc', '너무너무많이들어가', '끝나고', '뭐먹지', SYSDATE, SYSDATE, 'r_29.png');
-INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'avocado2', '암것도안대zxc', '너무너무많이들어가', '끝나고', '뭐먹지', SYSDATE, SYSDATE, 'r_31.png');
-INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'avocado3', '암것도안대az', '너무너무많이들어가', '끝나고', '뭐먹지', SYSDATE, SYSDATE, 'r_27.png');
-INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'avocado4', '암것도안대zz', '너무너무많이들어가', '끝나고', '뭐먹지', SYSDATE, SYSDATE, 'r_15.png');
-INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'avocado5', '암것도안대zz', '너무너무많이들어가', '끝나고', '뭐먹지', SYSDATE, SYSDATE, 'r_08.png');
-INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'avocado6', '암것도안대zz', '너무너무많이들어가', '끝나고', '뭐먹지', SYSDATE, SYSDATE, 'r_10.png');
-INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'avocado7', '암것도안대zz', '너무너무많이들어가', '끝나고', '뭐먹지', SYSDATE, SYSDATE, 'r_22.png');
-INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'avocado8', '암것도안대zz', '너무너무많이들어가', '끝나고', '뭐먹지', SYSDATE, SYSDATE, 'r_24.png');
-INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'avocado9', '암것도안대zz', '너무너무많이들어가', '끝나고', '뭐먹지', SYSDATE, SYSDATE, 'r_30.png');
+INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'mango', '버섯 꼬치구이', 
+'오늘은 간단하지만, 매력이 솔솔 넘치는  버섯꼬치구이로 인사드립니다. 지금 한창 표고버섯이 고기만큼 맛있어서
+사실 어떻게 요리해도 맛있습니다~~ 하여, 간단한 술안주로 양보도 해봅니다ㅎㅎ 유난히 씹는 질감이 좋은 버섯에 
+매콤달콤한 양념에 발라 구웠더니 매력넘치는 술안주가 되었습니다ㅎㅎ', 
+'재료: 표고버섯5개, 대파3대(흰부분)                        바름장: 고추장1작은술, 매실청1큰술, 간장1작은술,설탕1작은술, 참기름1작은술,통깨약간', 
+'1. 준비: 표고버섯은 기둥을 떼어내고 갓만 준비한다.도톰하게 편썰어준다. 
+꼬치에 꿰어지는 두께는 되어야 합니당ㅎㅎ 
+(표고버섯이 아니여도 새송이버섯도 잘 어울릴듯합니다~) 
+대파는 떨어져서 오늘 1단사왔어요 굵기가 굵은것만 골라 흰대부분만 사용합니다. 
+너무 굵은 부분은 반갈라서 준비합니다. (양파도 곁들여도 좋습니다~참조) 
+2. 꼬치에 꿰기 대파, 버섯 , 대파 순으로 꽂아줍니다. 대파보다 버섯이 단단해서 버섯을 끝쪽으로 가게 하면 좋더군요ㅎㅎ 버섯5개일뿐인데..
+꼬치로 만드니 양이 많아져 보이네요~~ 모양이쁜 꼬치로 넣으려니 넘 굵더군요ㅠㅠ 하여, 산적꼬치로 바꿔 꿰였다는ㅎㅎㅎ', SYSTIMESTAMP, SYSTIMESTAMP, 'r_12.png');
+INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'grape', '바게트 부르스게타', '너무너무많이들어가', '끝나고', '뭐먹지', SYSTIMESTAMP, SYSTIMESTAMP, 'r_11.png');
+INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'avocado', '감자뇨끼', '너무너무많이들어가', '끝나고', '뭐먹지', SYSTIMESTAMP, SYSTIMESTAMP, 'r_16.png');
+INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'avocado1', '암것도안대zxc', '너무너무많이들어가', '끝나고', '뭐먹지', SYSTIMESTAMP, SYSTIMESTAMP, 'r_29.png');
+INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'avocado2', '암것도안대zxc', '너무너무많이들어가', '끝나고', '뭐먹지', SYSTIMESTAMP, SYSTIMESTAMP, 'r_31.png');
+INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'avocado3', '암것도안대az', '너무너무많이들어가', '끝나고', '뭐먹지', SYSTIMESTAMP, SYSTIMESTAMP, 'r_27.png');
+INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'avocado4', '암것도안대zz', '너무너무많이들어가', '끝나고', '뭐먹지', SYSTIMESTAMP, SYSTIMESTAMP, 'r_15.png');
+INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'avocado5', '암것도안대zz', '너무너무많이들어가', '끝나고', '뭐먹지', SYSTIMESTAMP, SYSTIMESTAMP, 'r_08.png');
+INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'avocado6', '암것도안대zz', '너무너무많이들어가', '끝나고', '뭐먹지', SYSTIMESTAMP, SYSTIMESTAMP, 'r_10.png');
+INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'avocado7', '암것도안대zz', '너무너무많이들어가', '끝나고', '뭐먹지', SYSTIMESTAMP, SYSTIMESTAMP, 'r_22.png');
+INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'avocado8', '암것도안대zz', '너무너무많이들어가', '끝나고', '뭐먹지', SYSTIMESTAMP, SYSTIMESTAMP, 'r_24.png');
+INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'avocado9', '암것도안대zz', '너무너무많이들어가', '끝나고', '뭐먹지', SYSTIMESTAMP, SYSTIMESTAMP, 'r_30.png');
 COMMIT;
 
 INSERT INTO CART VALUES(CART_SEQ.NEXTVAL, '20230515', 1);

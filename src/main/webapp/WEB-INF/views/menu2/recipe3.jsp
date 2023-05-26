@@ -114,8 +114,12 @@
 </head>
 <body>
 <header>
-
-	<%@ include file="../headfoot/header.jsp"%>
+	<c:if test="${sessionScope.loginId == null}">
+		<%@ include file="../headfoot/header-x.jsp" %>
+	</c:if>
+	<c:if test="${sessionScope.loginId != null}">
+		<%@ include file="../headfoot/header.jsp" %>
+	</c:if>
 </header>
 
 		<div class="recipe">
