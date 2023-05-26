@@ -21,6 +21,12 @@ public class QnaController {
 
 	@Autowired
 	private QnaService qnaService;
+	
+	@GetMapping("/list.do")
+	public String pagination(HttpServletRequest request, Model model) {
+		qnaService.getQnaList(request, model);
+		return "qna/list";
+	}
 
 	@GetMapping("/list.form")
 	public String getqnaList(HttpServletRequest request, Model model) { // Model : jsp로 forward할 데이터를 저장하는 곳
@@ -43,5 +49,20 @@ public class QnaController {
 		qnaService.getQnaByNo(qnaNo, model);
 		return "qna/qnaDetail";
 	}
+	
+	@PostMapping("/qnaEdit.do")
+	public void editqnaList(HttpServletRequest request, HttpServletResponse response) {
+		qnaService.editQnaList(request, response);
+	}
+	
+	
+	@GetMapping("/qnaEdit.form")
+	public String editQna(@RequestParam(value = "qnaNo", required = false, defaultValue = "0") int qnaNo, Model model) {
+		qnaService.getQnaByNo(qnaNo, model);
+		return "qna/list";
+	}
+	
+	
+
 
 }

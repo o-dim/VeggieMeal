@@ -14,6 +14,19 @@
 <script src="${contextPath}/resources/summernote-0.8.18-dist/lang/summernote-ko-KR.min.js"></script>
 <link rel="stylesheet" href="${contextPath}/resources/summernote-0.8.18-dist/summernote-lite.min.css">
 <script>
+	var frm;
+	$(function(){
+		frm = $('#frm');
+	})
+	
+	function fnList() {
+		location.href = "${contextPath}/qna/list.form";
+	}
+	
+	
+		function fnEditUpload(){
+			location.href = "${contextPath}/qna/qnaEdit.form?qnaNo=${}";
+		}
 	
 </script>
 
@@ -32,7 +45,6 @@
 			<ul>
 				<li>제목 : ${qnaDTO.title}</li>
 				<li>내용 : ${qnaDTO.content}</li>
-				<li>작성자 : ${qnaDTO.personDTO.id}</li>
 				<li>작성일자 : ${qnaDTO.writeAt}</li>
 			</ul>	
 			<form id="frm" method="post">

@@ -21,4 +21,6 @@ public interface QnaMapper {
 	public int addQnaList(QnaDTO qnaDTO);
 
 	public QnaDTO getQnaByNo(int qnaNo);
+	
+	public int updateBoard(QnaDTO qnaDTO);
 }

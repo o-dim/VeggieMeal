@@ -40,21 +40,29 @@
 
 <select id="getQnaCount" resultType="int">
 	select count(*)
-	  from qna
+	  from QNA
 </select>
 
 <select id="getQnaList" parameterType="Map" resultMap="QnaMap">
   SELECT A.QNA_NO, A.TITLE, A.CONTENT, A.WRITE_AT, A.ID
 	FROM (SELECT ROW_NUMBER() OVER(ORDER BY QNA_NO DESC) RN, QNA_NO, TITLE, CONTENT, WRITE_AT, ID
-	        FROM QNA) A
+	        FROM QNA ORDER BY QNA_NO ASC) A
    WHERE A.RN BETWEEN #{begin} AND #{end}
 </select>
 
 <select id="getQnaByNo" parameterType="int" resultType="QnaDTO">
-   SELECT TITLE, CONTENT, ID, WRITE_AT
-   FROM QNA
-WHERE QNA_NO = #{qnoNo}
+  SELECT A.TITLE, A.CONTENT, A.ID, A.WRITE_AT
+   FROM (SELECT QNA_NO, TITLE, CONTENT, WRITE_AT, ID
+   			FROM QNA) A
+	WHERE A.QNA_NO = #{qnaNo}
 </select>
+
+<update id="updateBoard" parameterType="int">
+ 	UPDATE QNA
+ 		SET TITLE = #{title}
+ 		, CONTENT = #{content}
+ 		WHERE QNA_NO = #{qnaNo}
+</update>
  
  
  

@@ -63,7 +63,7 @@ function fnWrite() {
 				</c:if>
 			</tbody>
 		</table>
-			${pagination}
+			
 		
 		</form>
 		
