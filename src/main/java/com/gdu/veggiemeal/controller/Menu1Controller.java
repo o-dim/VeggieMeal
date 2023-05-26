@@ -44,17 +44,6 @@ public class Menu1Controller {
 		model.addAttribute("s", menu1Service.getSaleByNo(request));
 		return "menu1/wantedDetail";
 	}
-	
-	@GetMapping("/payment.do")
-	public String payment() {
-		return "menu1/payment";
-	}
-	
-	@GetMapping("/arrest.do")
-	public String arrest() {
-		return "menu1/arrest";
-		
-	}
 
 	
 

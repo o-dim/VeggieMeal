@@ -148,8 +148,6 @@
 	<%@ include file="../headfoot/header.jsp" %>
 </c:if>
 
-<a href="${contextPath}/menu1/arrest.do">검거하기</a>
-<a href="${contextPath}/menu1/payment.do">결제수단</a>
 
 
 

@@ -29,6 +29,7 @@
 			<mapping path="/person/mypage.form"/>
 			<mapping path="/person/edit.form"/>
 			<mapping path="/qna/qnaWrite.form"/>
+			<mapping path="/order/cart.form"/>
 			<beans:bean class="com.gdu.veggiemeal.interceptor.LoginInterceptor"></beans:bean>
 		</interceptor>
 		<interceptor>
