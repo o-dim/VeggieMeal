@@ -25,7 +25,7 @@
 	
 	
 		function fnEditUpload(){
-			location.href = "${contextPath}/qna/qnaEdit.form?qnaNo=${}";
+			location.href = "${contextPath}/qna/qnaEdit.form?qnaNo=" + ${q.qnoNo};
 		}
 	
 </script>
@@ -43,7 +43,7 @@
 	<div>
 		<h2>${qnaDTO.title}</h2>
 			<ul>
-				<li>제목 : ${qnaDTO.title}</li>
+				<li> No : ${qnaDTO.qnaNo}</li>
 				<li>내용 : ${qnaDTO.content}</li>
 				<li>작성일자 : ${qnaDTO.writeAt}</li>
 			</ul>	
