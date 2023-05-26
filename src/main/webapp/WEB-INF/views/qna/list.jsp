@@ -12,7 +12,7 @@
 <script src="${contextPath}/resources/js/lib/jquery-3.6.4.min.js"></script>
 <script>
 function fnWrite() {
-	 location.href = "${contextPath}/qna/qnaWrite.do";
+	 location.href = "${contextPath}/qna/qnaWrite.form";
 	}
 	
 </script>
@@ -20,23 +20,27 @@ function fnWrite() {
 </head>
 
 <body>
-<%@ include file="../headfoot/header.jsp" %>
-	
+	<c:if test="${sessionScope.loginId == null}">
+		<%@ include file="../headfoot/header-x.jsp" %>
+	</c:if>
+	<c:if test="${sessionScope.loginId != null}">
+		<%@ include file="../headfoot/header.jsp" %>
+	</c:if>
 	<div>
 		<h2>자주하는 질문</h2>
 	</div>
 	<div>
-			<input type="button" id="write" value="질문하기" onclick="fnWrite()">
+		<input type="button" id="write" value="질문하기" onclick="fnWrite()">
 	</div>
 	<div>
 		<form id="frmList">
 		<table border="1">
 			<thead>
-				<tr>
+				<tr>	
 					<td>글 번호</td>
 					<td>제목</td>
 					<td>내용</td>
-					<td>글쓴이</td>
+					<td>검거단</td>
 					<td>날짜</td>
 				</tr>
 			</thead>
@@ -50,7 +54,7 @@ function fnWrite() {
 					<c:forEach items="${qnaList}" var="q">
 						<tr>
 							<td>${q.qnaNo}</td>
-							<td>${q.title}</td>
+							<td><a href="${contextPath}/qna/qnaDetail.form?qnaNo=${q.qnaNo}">${q.title}</a></td>
 							<td>${q.content}</td>
 							<td>${q.personDTO.id}</td>
 							<td>${q.writeAt}</td>
@@ -58,8 +62,8 @@ function fnWrite() {
 					</c:forEach>
 				</c:if>
 			</tbody>
-			<caption>${pagination}</caption>
 		</table>
+			
 		
 		</form>
 		
