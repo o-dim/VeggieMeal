@@ -61,7 +61,7 @@ CREATE TABLE PRODUCT (
 -- 상품판매 (판매 원티드 페이지)
 CREATE TABLE SALE (
    SALE_NO                       NUMBER               NOT NULL, 
-   PROD_CODE                   	 NUMBER               NOT NULL, -- 제품코드
+   PROD_CODE                       NUMBER               NOT NULL, -- 제품코드
    SALE_TITLE                    VARCHAR2(100 BYTE)       NULL, -- 제품이름
    SALE_CONTENT                  VARCHAR2(100 BYTE)       NULL, 
    SALE_PRICE                    NUMBER                   NULL  -- 제품가격
@@ -70,25 +70,25 @@ CREATE TABLE SALE (
 -- 상품이미지 : 상품이미지번호, 상품코드, 경로, 파일명, 메인이미지 ( 대표이미지라면1, 아니면0)
 CREATE TABLE PIMG (
    PIMG_NO                       NUMBER               NOT NULL,
-   PIMG_PATH                   	 VARCHAR2(100 BYTE)   NOT NULL,
-   PIMG_FILE                   	 VARCHAR2(50 BYTE)    NOT NULL,
-   PROD_CODE                   	 NUMBER               NOT NULL,
-   PIMG_MAIN_IMG              	 NUMBER               NOT NULL
+   PIMG_PATH                       VARCHAR2(100 BYTE)   NOT NULL,
+   PIMG_FILE                       VARCHAR2(50 BYTE)    NOT NULL,
+   PROD_CODE                       NUMBER               NOT NULL,
+   PIMG_MAIN_IMG                  NUMBER               NOT NULL
 );
 
 -- 회원(탈퇴,휴면)
 CREATE TABLE PERSON (
-   PER_NO                      	NUMBER               NOT NULL,
+   PER_NO                         NUMBER               NOT NULL,
    PW                           VARCHAR2(100 BYTE)   NOT NULL,
-   PHONENO                      CLOB               	 NOT NULL,
-   POST_CODE               		VARCHAR2(5 BYTE)       	 NULL,
-   ROAD_ADDRESS               	VARCHAR2(100 BYTE)       NULL,
-   JIBUN_ADDRESS               	VARCHAR2(100 BYTE)       NULL,
+   PHONENO                      CLOB                   NOT NULL,
+   POST_CODE                     VARCHAR2(5 BYTE)           NULL,
+   ROAD_ADDRESS                  VARCHAR2(100 BYTE)       NULL,
+   JIBUN_ADDRESS                  VARCHAR2(100 BYTE)       NULL,
    DETAIL_ADDRESS               VARCHAR2(100 BYTE)       NULL,
-   EMAIL                       	VARCHAR2(20 BYTE)    NOT NULL,
+   EMAIL                          VARCHAR2(20 BYTE)    NOT NULL,
    GENDER                       VARCHAR2(10 BYTE)        NULL,
-   NAME                       	VARCHAR2(20 BYTE)        NULL,
-   JOINED_AT                   	DATE                   	 NULL,
+   NAME                          VARCHAR2(20 BYTE)        NULL,
+   JOINED_AT                      DATE                       NULL,
    ID                           VARCHAR2(20 BYTE)    NOT NULL UNIQUE
 );
 
@@ -126,7 +126,7 @@ CREATE TABLE FAST_ORDER_DETAIL (
 
 -- 레시피 추천 : 사용자(FK), 레시피 번호(FK)
 CREATE TABLE RECOMMAND (
-   RECOMMAND_NO                NUMBER              	NOT NULL,
+   RECOMMAND_NO                NUMBER                 NOT NULL,
    PER_NO                      NUMBER               NOT NULL,
    RECIPE_NO                   NUMBER               NOT NULL
 );
@@ -134,17 +134,17 @@ CREATE TABLE RECOMMAND (
 -- QNA
 CREATE TABLE QNA (
    QNA_NO                       NUMBER               NOT NULL,
-   TITLE                       	VARCHAR2(100 BYTE)   NOT NULL,
-   CONTENT                      CLOB                   	 NULL,
-   WRITE_AT                   	TIMESTAMP                NULL,
-   ID                          	VARCHAR2(20 BYTE)    NOT NULL UNIQUE  
+   TITLE                          VARCHAR2(100 BYTE)   NOT NULL,
+   CONTENT                      CLOB                       NULL,
+   WRITE_AT                      TIMESTAMP                NULL,
+   ID                             VARCHAR2(20 BYTE)    NOT NULL UNIQUE  
 );
 
 -- QNA
 CREATE TABLE QNA_ANSWER (
    TITLE                       VARCHAR2(100 BYTE)   NOT NULL,
-   CONTENT                     CLOB                   	NULL,
-   ANSWER_AT                   TIMESTAMP               	NULL,
+   CONTENT                     CLOB                      NULL,
+   ANSWER_AT                   TIMESTAMP                  NULL,
    ID                          VARCHAR2(20 BYTE)    NOT NULL UNIQUE  
 );
 
@@ -159,19 +159,19 @@ CREATE TABLE LEAVE_PERSON (
 
 -- 휴먼 계정
 CREATE TABLE SLEEP_PERSON (
-   SLEEP_PER_NO                	NUMBER              NOT NULL,
+   SLEEP_PER_NO                   NUMBER              NOT NULL,
    ID                           VARCHAR2(20 BYTE)   NOT NULL UNIQUE,
    PW                           VARCHAR2(100 BYTE)  NOT NULL,
-   PHONENO                      CLOB               	NOT NULL,
-   POST_CODE               	 	VARCHAR2(5 BYTE)       	NULL,
-   ROAD_ADDRESS                	VARCHAR2(100 BYTE)      NULL,
-   JIBUN_ADDRESS               	VARCHAR2(100 BYTE)      NULL,
+   PHONENO                      CLOB                  NOT NULL,
+   POST_CODE                      VARCHAR2(5 BYTE)          NULL,
+   ROAD_ADDRESS                   VARCHAR2(100 BYTE)      NULL,
+   JIBUN_ADDRESS                  VARCHAR2(100 BYTE)      NULL,
    DETAIL_ADDRESS               VARCHAR2(100 BYTE)      NULL,
-   EMAIL                       	VARCHAR2(20 BYTE)   NOT NULL,
+   EMAIL                          VARCHAR2(20 BYTE)   NOT NULL,
    GENDER                       NUMBER                  NULL,
-   NAME                       	VARCHAR2(20 BYTE)   NOT NULL,
-   JOINED_AT                   	DATE                   	NULL,
-   SLEPT_AT                   	DATE                   	NULL
+   NAME                          VARCHAR2(20 BYTE)   NOT NULL,
+   JOINED_AT                      DATE                      NULL,
+   SLEPT_AT                      DATE                      NULL
 );
 
 -- 레시피 게시판
@@ -322,7 +322,7 @@ ALTER TABLE CART_DETAIL
 
 INSERT INTO PERSON VALUES (
     PERSON_SEQ.NEXTVAL,
-    'A29974B03834084DECD9E7AF13EEA928746C058BEBB9B0BF0456A5616227FEFE',
+    'B28FFB70BEAABE4EE42FBD 5579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
     '01011111113',
     '11111',
     '망고광역시',
@@ -339,7 +339,7 @@ INSERT INTO PERSON VALUES (
 
 INSERT INTO PERSON VALUES (
     PERSON_SEQ.NEXTVAL,
-    'B79F3C6EFA940CF39F084F9874241EA56B17CA5442F36AB6D89DB2C9D3807096',
+    'B28FFB70BEAABE4EE42FBD 5579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
     '01011111116',
     '11114',
     '포도',
@@ -353,7 +353,7 @@ INSERT INTO PERSON VALUES (
 );
 INSERT INTO PERSON VALUES (
     PERSON_SEQ.NEXTVAL,
-    'B28FFB70BEAABE4EE42FBD05579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
+    'B28FFB70BEAABE4EE42FBD 5579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
     '01011111119',
     '11312',
     '나보카도',
@@ -366,7 +366,7 @@ INSERT INTO PERSON VALUES (
     'avocado'
 ); INSERT INTO PERSON VALUES (
     PERSON_SEQ.NEXTVAL,
-    'B28FFB70BEAABE4EE42FBD05579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
+    'B28FFB70BEAABE4EE42FBD 5579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
     '01011111119',
     '11312',
     '나보카도',
@@ -380,7 +380,7 @@ INSERT INTO PERSON VALUES (
 ); 
 INSERT INTO PERSON VALUES (
     PERSON_SEQ.NEXTVAL,
-    'B28FFB70BEAABE4EE42FBD05579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
+    'B28FFB70BEAABE4EE42FBD 5579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
     '01011111119',
     '11312',
     '나보카도',
@@ -394,7 +394,7 @@ INSERT INTO PERSON VALUES (
 ); 
 INSERT INTO PERSON VALUES (
     PERSON_SEQ.NEXTVAL,
-    'B28FFB70BEAABE4EE42FBD05579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
+    'B28FFB70BEAABE4EE42FBD 5579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
     '01011111119',
     '11312',
     '나보카도',
@@ -408,7 +408,7 @@ INSERT INTO PERSON VALUES (
 ); 
 INSERT INTO PERSON VALUES (
     PERSON_SEQ.NEXTVAL,
-    'B28FFB70BEAABE4EE42FBD05579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
+    'B28FFB70BEAABE4EE42FBD 5579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
     '01011111119',
     '11312',
     '나보카도',
@@ -422,7 +422,7 @@ INSERT INTO PERSON VALUES (
 ); 
 INSERT INTO PERSON VALUES (
     PERSON_SEQ.NEXTVAL,
-    'B28FFB70BEAABE4EE42FBD05579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
+    'B28FFB70BEAABE4EE42FBD 5579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
     '01011111119',
     '11312',
     '나보카도',
@@ -436,7 +436,7 @@ INSERT INTO PERSON VALUES (
 ); 
 INSERT INTO PERSON VALUES (
     PERSON_SEQ.NEXTVAL,
-    'B28FFB70BEAABE4EE42FBD05579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
+    'B28FFB70BEAABE4EE42FBD 5579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
     '01011111119',
     '11312',
     '나보카도',
@@ -450,7 +450,7 @@ INSERT INTO PERSON VALUES (
 ); 
 INSERT INTO PERSON VALUES (
     PERSON_SEQ.NEXTVAL,
-    'B28FFB70BEAABE4EE42FBD05579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
+    'B28FFB70BEAABE4EE42FBD 5579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
     '01011111119',
     '11312',
     '나보카도',
@@ -464,7 +464,7 @@ INSERT INTO PERSON VALUES (
 ); 
 INSERT INTO PERSON VALUES (
     PERSON_SEQ.NEXTVAL,
-    'B28FFB70BEAABE4EE42FBD05579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
+    'B28FFB70BEAABE4EE42FBD 5579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
     '01011111119',
     '11312',
     '나보카도',
@@ -478,7 +478,7 @@ INSERT INTO PERSON VALUES (
 ); 
 INSERT INTO PERSON VALUES (
     PERSON_SEQ.NEXTVAL,
-    'B28FFB70BEAABE4EE42FBD05579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
+    'B28FFB70BEAABE4EE42FBD 5579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0',
     '01011111119',
     '11312',
     '나보카도',
@@ -490,8 +490,8 @@ INSERT INTO PERSON VALUES (
     SYSDATE,
     'avocado9'
 ); 
-INSERT INTO PERSON VALUES (PERSON_SEQ.NEXTVAL, '7EDD9AC8083B4B82B5CECD89B8D4D1AE680B7A91A94DFD5C3D524E7C1DF8796B', '01011111123', '11223', '감자도리', '감자링', '감자감자', 'potato@gmail.com', null, '박감자', SYSDATE, 'potato');
-INSERT INTO PERSON VALUES (PERSON_SEQ.NEXTVAL, 'DD98D9F65B6E0C39CED4EFEEC44C47152CA71C733EEDBDEAA8153A6CDB29D67B', '01011111124', '11224', '당', '당근이', '당근냠', 'carrot@gmail.com', null, '당당근', SYSDATE, 'carrot');
+INSERT INTO PERSON VALUES (PERSON_SEQ.NEXTVAL, 'B28FFB70BEAABE4EE42FBD 5579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0', '01011111123', '11223', '감자도리', '감자링', '감자감자', 'potato@gmail.com', null, '박감자', SYSDATE, 'potato');
+INSERT INTO PERSON VALUES (PERSON_SEQ.NEXTVAL, 'B28FFB70BEAABE4EE42FBD 5579E60A2C81ADE1E6FB5647740EB9273F1E3E4E0', '01011111124', '11224', '당', '당근이', '당근냠', 'carrot@gmail.com', null, '당당근', SYSDATE, 'carrot');
 
 
  INSERT INTO PRODUCT VALUES (PROD_SEQ.NEXTVAL, '고수',       '/storage\\product', 'V_01.PNG', 12000, 20); 
@@ -523,33 +523,33 @@ INSERT INTO PERSON VALUES (PERSON_SEQ.NEXTVAL, 'DD98D9F65B6E0C39CED4EFEEC44C4715
  INSERT INTO PRODUCT VALUES (PROD_SEQ.NEXTVAL, '여주',       '/storage\\product', 'V_24.PNG', 15000, 20); 
  COMMIT;
  
- INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 1, '맛 좋은 고수', '강화도 해풍 맞고 자란 고수', 14000);
- INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 2, '깻잎', '남해에서 올라온 깻잎', 12000);
- INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 3, '땅땅콩콩', '제주도에서 건너온 땅콩', 17000);
- INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 4, '양배추', '양구의 자랑 양배추', 14000);
+INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 1, '싸움고수', '고수 중의 고수입니다. 검거하는 동안 몸부림이 장난 아니었습니다.', 14000);
+ INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 2, '깻잎', '남해에서 포획한 깻잎을 야무지게 입으로 검거해주세요.', 12000);
+ INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 3, '땅땅콩콩', '제주도에서 잡아온 땅콩입니다. 역시 작은 땅콩이 더 고소합니다.', 17000);
+ INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 4, '양배추', '양구의 자랑 양배추입니다.', 14000);
  INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 5, '오이', '전국 각지에서 데려온 오이', 14000);
- INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 6, '너마늘사랑해', '한국인의 요리에는 무조건 들어가는 마늘', 14000);
- INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 7, '그린빈', '그린빈 맛있어요', 17000);
- INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 8, '가지', '가지는 건강에 좋아요', 11000);
- INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 9, '호박고구마', '호박고구마! 호박고구마!', 13500);
+ INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 6, '너마늘사랑해', '너, 나, 우리 모두 마늘 사랑해', 14000);
+ INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 7, '그린빈', '그린빈 념념 굿입니다.', 17000);
+ INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 8, '가지', '가지는 밥 경찰이 아닙니다. 그저 검거대상이죠.', 11000);
+ INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 9, '호박고구마', '어머님, 마트.. 다녀오셨어요?의 그 호박고구마! 입니다.', 13500);
  INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL,10, '청포도', '단연코 샤인머스켓보다 맛있습니다', 14000);
  INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 11, '천도복숭아', '앗뜨거 복숭아', 13000);
  INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 12, '산딸기', '입 안에서 톡톡 산딸기', 12500);
  INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 13, '청사과', '초여름 향기 가득 머금은 청사과', 14000);
  INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 14, '수박', '달콤한 수박 맛보세요!', 24000);
  INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 15, '모과', '여름 감기 빨리 낫게하는 모과', 14000);
- INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 16, '딸기', '논산에서 가장 유명한 신씨농부네 딸기', 17000);
- INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 17, '비파', '개그맨도 추천한 그 과일!', 13000);
+ INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 16, '딸기', '논산에서 가장 유명한 신家네 딸기입니다. 실한 놈들만 잡아들였습니다.', 17000);
+ INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 17, '비파', '개그맨도 추천한 그 과일! 비파입니다.', 13000);
  INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 18, '참다래', '참다래가 키위보다 맛있습니다', 20000);
- INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 19,  '피클용오이', '피클용 오이의 아삭함을 느껴보세요', 14000);
- INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 20, '순무', '순무와 무우의 차이를 느껴보세요', 13000);
- INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 21, '옥수수', '옥수수는 역시 강원도 옥수수!', 12500);
- INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 22, '무우', '무우와 순무의 차이를 느껴보세요', 14000);
- INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 23, '파프리카', '파프리카의 비타민C는 과일보다 훨씬 뛰어납니다', 12000);
- INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 24, '양송이버섯', '여름 감기 빨리 낫게하는 모과', 14000);
- INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 25, '브로콜리', '시장에서 판매되는 보리꼬리와 같은 품종입니다', 12000);
- INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 26, '표고버섯', '진도산 표고버섯! 다시는 안 올 기회!', 13000);
- INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 27, '여주', '당뇨에 좋은 여주', 20000);
+ INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 19, '피클용오이', '피클용 오이의 아삭함을 느껴보세요', 14000);
+ INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 20, '순무', '무우 잡으러 갔다가 덤으로 잡아왔습니다.', 13000);
+ INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 21, '옥수수', '강원도 옥수수(강냉이)입니다. 제 강냉이도 위험했습니다.', 12500);
+ INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 22, '무우', '무우, 무우 울면서 잡힌 무우입니다.', 14000);
+ INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 23, '팟프리카', '팟프리카 단면 보고 조금 무서웠습니다만 안전하게 검거했습니다.', 12000);
+ INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 24, '양송이버섯', '양송이버섯을 구울 때 나오는 물은 그냥 물입니다..', 14000);
+ INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 25, '브로콜리', '시장에서 판매되는 보리꼬리와 같은 품종입니다.', 12000);
+ INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 26, '표고버섯', '진도산 표고버섯! 다시는 안 올 기회 잡아보시겠어요?', 13000);
+ INSERT INTO SALE VALUES (SALE_SEQ.NEXTVAL, 27, '여주', '당뇨에 좋은 여주입니다.', 20000);
 COMMIT;
 
 INSERT INTO RECIPE VALUES(RECIPE_SEQ.NEXTVAL, 'mango', '암것도안대z', '너무너무많이들어가', '끝나고', '뭐먹지', SYSDATE, SYSDATE, 'r_11.png');

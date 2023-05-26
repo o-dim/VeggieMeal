@@ -10,11 +10,9 @@ import lombok.NoArgsConstructor;
 public class SaleDTO {
 	
 	private int saleNo;
-	private ProductDTO prodCode;
 	private String saleTitle;
 	private String saleContent;
 	private int salePrice;
-	private ProductDTO prodPath;
-	private ProductDTO prodImgName;
+	private ProductDTO productDTO;
 
 }

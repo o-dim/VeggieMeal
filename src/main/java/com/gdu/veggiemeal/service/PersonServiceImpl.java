@@ -102,7 +102,7 @@ public class PersonServiceImpl implements PersonService {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = response.getWriter();
 				out.println("<script>");
-				out.println("alert('반갑습니다, ${sessionScope.id}님.');");
+				out.println("alert('반갑습니다, ${sessionScope.loginId}님.');");
 				out.println("</script>");
 				response.sendRedirect(request.getContextPath() + "/person/index.form");
 				return;

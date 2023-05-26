@@ -29,15 +29,10 @@
 	$(function() {
 		fnLogin();
 	})
-	function clickMe() {
-		window.scrollTo(0,0);
-	}
 	
 </script>
 </head>
-<style>
-	@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
-	
+<style>	
 	.box {
 		position: absolute;
 		width: 1000px;
@@ -84,16 +79,6 @@
 		text-align: center;
 		margin-bottom: 200px;
 	}
-	#topBtn{
-		top: 90%;
-		left: 90%;
-		position: fixed;
-		z-index: 1;
-	}
-	.fa-solid fa-carrot {
-		display: flex;
-		justify-content: center;
-	}
 
 </style>
 <body>
@@ -118,10 +103,8 @@
 		</form>
 		</div>
 	</div>
-	<!--  top btn -->
-	<div id="topBtn" onclick="clickMe()">
-		<div><i class="fa-solid fa-carrot fa-lg"></i></div><div>top</div>
-	</div>
+<%@ include file="../headfoot/carrot.jsp" %>
+
 </body>
 </html>
 

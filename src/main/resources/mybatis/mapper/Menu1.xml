@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace는 @Mapper를 지정 한다.-->
+<mapper namespace="com.gdu.veggiemeal.mapper.Menu1Mapper">
+
+	<!-- SALE과 PRODUCT의 JOIN 결과를 저장할 resultMap 만들기 -->
+	<resultMap type="SaleDTO" id="SaleMap">
+	   <id column="SALE_NO" property="saleNo"/>
+	   <result column="SALE_TITLE" property="saleTitle"/>
+	   <result column="SALE_CONTENT" property="saleContent"/>
+	   <result column="SALE_PRICE" property="salePrice"/>
+	   <association javaType="ProductDTO" property="productDTO">
+	      <id column="PROD_CODE" property="prodCode" />
+	      <result column="PROD_NAME" property="prodName"/>
+	      <result column="PROD_PATH" property="prodPath"/>
+	      <result column="PROD_IMG_NAME" property="prodImgName"/>
+	      <result column="PROD_ORIGIN_PRICE" property="prodOriginPrice"/>
+	      <result column="PROD_STOCK" property="prodStock"/>
+	   </association>
+	</resultMap>
+	
+	
+	<!-- 전체 레코드 수 확인 -->
+    <select id="getSaleCount" resultType="int"> 
+		SELECT COUNT(*)
+		  FROM SALE
+	</select>
+
+
+    
+ 	<!-- 무한스크롤 -->
+ 	<select id="getSaleListUsingScroll" parameterType="Map" resultMap="SaleMap"> 
+ 		SELECT A.SALE_NO, A.SALE_TITLE, A.SALE_CONTENT, A.SALE_PRICE, A.PROD_CODE, A.PROD_NAME, A.PROD_PATH, A.PROD_IMG_NAME, A.PROD_ORIGIN_PRICE, A.PROD_STOCK
+	    FROM (SELECT ROW_NUMBER() OVER(ORDER BY SALE_NO DESC) AS RN, S.SALE_NO, S.SALE_TITLE, S.SALE_CONTENT, S.SALE_PRICE, P.PROD_CODE, P.PROD_NAME, P.PROD_PATH, P.PROD_IMG_NAME, P.PROD_ORIGIN_PRICE, P.PROD_STOCK 
+	            FROM PRODUCT P INNER JOIN SALE S
+	              ON P.PROD_CODE = S.PROD_CODE) A
+       WHERE A.RN BETWEEN #{begin} AND #{end} 
+ 	</select>
+ 	
+	<!-- 상품 클릭 시 상품 상세화면 이동 -->
+	<select id="selectSaleByNo" parameterType="int" resultMap="SaleMap">
+	  SELECT S.SALE_NO, S.SALE_TITLE, S.SALE_CONTENT, S.SALE_PRICE, P.PROD_CODE, P.PROD_NAME, P.PROD_PATH, P.PROD_IMG_NAME, P.PROD_ORIGIN_PRICE, P.PROD_STOCK
+	    FROM PRODUCT P INNER JOIN SALE S
+	      ON P.PROD_CODE = S.PROD_CODE
+	   WHERE S.SALE_NO = #{saleNo}
+	</select>
+	 
+
+</mapper>
